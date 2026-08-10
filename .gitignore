@@ -1,0 +1,63 @@
+# Ignore other project directories
+../flutter_ecommerce_new/
+
+# Ignore server side changes from client directory
+../../server_side/
+
+# Flutter/Dart
+.dart_tool/
+.packages
+.pub-cache/
+.pub/
+build/
+.flutter-plugins
+.flutter-plugins-dependencies
+.package-resolve
+.fvm/
+
+# Android
+/android/
+/android-app/
+/keystore/
+
+# iOS
+/ios/
+/ios-app/
+
+# Web
+/web/
+
+# macOS
+/macos/
+
+# Linux
+/linux/
+
+# Windows
+/windows/
+
+# IDE
+.vscode/
+.idea/
+*.iml
+*.iws
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Logs
+*.log
+
+# Temporary files
+*.tmp
+*.temp
+
+# Documentation
+/doc/
+/docs/
+
+# Environment files
+.env
+.env.local
+.env.production
