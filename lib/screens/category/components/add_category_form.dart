@@ -56,14 +56,16 @@ class CategorySubmitForm extends StatelessWidget {
               width: ResponsiveUtils.isMobile(context) ? 120 : 150,
               child: CategoryImageCard(
                 labelText: "Category",
-                imageFile: catProvider.selectedImage,
+                imageBytes: catProvider.selectedImageBytes,
                 imageUrlForUpdateImage: category?.image,
                 onTap: () {
                   catProvider.pickImage(context);
                 },
                 onRemoveImage: () {
                   catProvider.selectedImage = null;
+                  catProvider.selectedImageBytes = null;
                   catProvider.imgXFile = null;
+                  catProvider.notifyListeners();
                 },
               ),
             ),

@@ -1,11 +1,12 @@
-import 'dart:io';
+import 'dart:typed_data';
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:cached_network_image/cached_network_image.dart';
 import '../utility/constants.dart';
 
 class ProductImageCard extends StatelessWidget {
   final String labelText;
-  final File? imageFile;
+  final Uint8List? imageBytes;
   final String? imageUrlForUpdateImage;
   final VoidCallback onTap;
   final VoidCallback onRemoveImage;
@@ -13,7 +14,7 @@ class ProductImageCard extends StatelessWidget {
   const ProductImageCard({
     Key? key,
     required this.labelText,
-    required this.imageFile,
+    this.imageBytes,
     this.imageUrlForUpdateImage,
     required this.onTap,
     required this.onRemoveImage,
@@ -21,7 +22,7 @@ class ProductImageCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final hasImage = imageFile != null ||
+    final hasImage = imageBytes != null ||
         (imageUrlForUpdateImage != null &&
             imageUrlForUpdateImage!.isNotEmpty &&
             imageUrlForUpdateImage != 'no_url');
@@ -123,11 +124,11 @@ class ProductImageCard extends StatelessWidget {
   }
 
   Widget _buildImageContent() {
-    if (imageFile != null) {
+    if (imageBytes != null) {
       return ClipRRect(
         borderRadius: BorderRadius.circular(6),
-        child: Image.file(
-          imageFile!,
+        child: Image.memory(
+          imageBytes!,
           fit: BoxFit.cover,
           width: double.infinity,
           height: double.infinity,

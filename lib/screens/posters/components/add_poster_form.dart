@@ -45,13 +45,14 @@ class PosterSubmitForm extends StatelessWidget {
               width: ResponsiveUtils.isMobile(context) ? 120 : 150,
               child: CategoryImageCard(
                 labelText: "Poster",
-                imageFile: posterProvider.selectedImage,
+                imageBytes: posterProvider.selectedImageBytes,
                 imageUrlForUpdateImage: poster?.imageUrl,
                 onTap: () {
                   posterProvider.pickImage(context);
                 },
                 onRemoveImage: () {
                   posterProvider.selectedImage = null;
+                  posterProvider.selectedImageBytes = null;
                   posterProvider.imgXFile = null;
                   posterProvider.notifyListeners();
                 },
