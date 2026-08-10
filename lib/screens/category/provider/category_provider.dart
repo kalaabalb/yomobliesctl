@@ -1,4 +1,3 @@
-import 'dart:io';
 import 'dart:typed_data';
 import 'package:admin_panal_start/models/api_response.dart';
 import 'package:admin_panal_start/utility/snack_bar_helper.dart';
@@ -22,7 +21,8 @@ class CategoryProvider extends ChangeNotifier {
   TextEditingController categoryNameCtrl = TextEditingController();
   Category? categoryForUpdate;
 
-  File? selectedImage;
+  XFile? selectedImage;
+  Uint8List? selectedImageBytes;
   XFile? imgXFile;
 
   bool _isLoading = false;
@@ -284,15 +284,15 @@ class CategoryProvider extends ChangeNotifier {
       showCameraPickerDialog(context, (XFile? image) async {
         if (image != null) {
           // Validate image size (max 5MB)
-          final file = File(image.path);
-          final fileSize = await file.length();
+          final fileSize = await image.length();
           if (fileSize > 5 * 1024 * 1024) {
             SnackBarHelper.showErrorSnackBar(
                 "Image size must be less than 5MB");
             return;
           }
 
-          selectedImage = file;
+          selectedImage = image;
+          selectedImageBytes = await image.readAsBytes();
           imgXFile = image;
           notifyListeners();
           SnackBarHelper.showSuccessSnackBar("Image selected successfully");
@@ -340,8 +340,7 @@ class CategoryProvider extends ChangeNotifier {
   //? to clear text field and images after adding or update category
   clearFields() {
     categoryNameCtrl.clear();
-    selectedImage = null;
-    imgXFile = null;
+    selectedImage = null;    selectedImageBytes = null;    imgXFile = null;
     categoryForUpdate = null;
     clearError();
     notifyListeners();

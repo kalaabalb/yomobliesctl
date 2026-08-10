@@ -1,4 +1,4 @@
-import 'dart:io';
+import 'dart:typed_data';
 
 import '../../../models/brand.dart';
 import '../../../models/category.dart';
@@ -113,28 +113,28 @@ class _ProductSubmitFormState extends State<ProductSubmitForm> {
             children: images.map((imageData) {
               return Consumer<DashBoardProvider>(
                 builder: (context, dashProvider, child) {
-                  File? selectedImage;
+                  Uint8List? selectedImageBytes;
                   switch (imageData.number) {
                     case 1:
-                      selectedImage = dashProvider.selectedMainImage;
+                      selectedImageBytes = dashProvider.selectedMainImageBytes;
                       break;
                     case 2:
-                      selectedImage = dashProvider.selectedSecondImage;
+                      selectedImageBytes = dashProvider.selectedSecondImageBytes;
                       break;
                     case 3:
-                      selectedImage = dashProvider.selectedThirdImage;
+                      selectedImageBytes = dashProvider.selectedThirdImageBytes;
                       break;
                     case 4:
-                      selectedImage = dashProvider.selectedFourthImage;
+                      selectedImageBytes = dashProvider.selectedFourthImageBytes;
                       break;
                     case 5:
-                      selectedImage = dashProvider.selectedFifthImage;
+                      selectedImageBytes = dashProvider.selectedFifthImageBytes;
                       break;
                   }
 
                   return ProductImageCard(
                     labelText: imageData.label,
-                    imageFile: selectedImage,
+                    imageBytes: selectedImageBytes,
                     imageUrlForUpdateImage: imageData.imageUrl,
                     onTap: () {
                       dashProvider.pickImage(
@@ -144,22 +144,27 @@ class _ProductSubmitFormState extends State<ProductSubmitForm> {
                       switch (imageData.number) {
                         case 1:
                           dashProvider.selectedMainImage = null;
+                          dashProvider.selectedMainImageBytes = null;
                           dashProvider.mainImgXFile = null;
                           break;
                         case 2:
                           dashProvider.selectedSecondImage = null;
+                          dashProvider.selectedSecondImageBytes = null;
                           dashProvider.secondImgXFile = null;
                           break;
                         case 3:
                           dashProvider.selectedThirdImage = null;
+                          dashProvider.selectedThirdImageBytes = null;
                           dashProvider.thirdImgXFile = null;
                           break;
                         case 4:
                           dashProvider.selectedFourthImage = null;
+                          dashProvider.selectedFourthImageBytes = null;
                           dashProvider.fourthImgXFile = null;
                           break;
                         case 5:
                           dashProvider.selectedFifthImage = null;
+                          dashProvider.selectedFifthImageBytes = null;
                           dashProvider.fifthImgXFile = null;
                           break;
                       }

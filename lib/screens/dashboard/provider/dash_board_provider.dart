@@ -1,4 +1,3 @@
-import 'dart:io';
 import 'dart:typed_data';
 import 'package:admin_panal_start/services/admin_auth_service.dart';
 import 'package:admin_panal_start/utility/snack_bar_helper.dart';
@@ -40,11 +39,16 @@ class DashBoardProvider extends ChangeNotifier {
   List<String> selectedVariants = [];
 
   Product? productForUpdate;
-  File? selectedMainImage,
+  XFile? selectedMainImage,
       selectedSecondImage,
       selectedThirdImage,
       selectedFourthImage,
       selectedFifthImage;
+  Uint8List? selectedMainImageBytes,
+      selectedSecondImageBytes,
+      selectedThirdImageBytes,
+      selectedFourthImageBytes,
+      selectedFifthImageBytes;
   XFile? mainImgXFile,
       secondImgXFile,
       thirdImgXFile,
@@ -327,33 +331,38 @@ class DashBoardProvider extends ChangeNotifier {
     try {
       showCameraPickerDialog(context, (XFile? image) async {
         if (image != null) {
-          final file = File(image.path);
-          final fileSize = await file.length();
+          final fileSize = await image.length();
           if (fileSize > 5 * 1024 * 1024) {
             SnackBarHelper.showErrorSnackBar(
                 "Image size must be less than 5MB");
             return;
           }
 
+          final bytes = await image.readAsBytes();
           switch (imageCardNumber) {
             case 1:
-              selectedMainImage = file;
+              selectedMainImage = image;
+              selectedMainImageBytes = bytes;
               mainImgXFile = image;
               break;
             case 2:
-              selectedSecondImage = file;
+              selectedSecondImage = image;
+              selectedSecondImageBytes = bytes;
               secondImgXFile = image;
               break;
             case 3:
-              selectedThirdImage = file;
+              selectedThirdImage = image;
+              selectedThirdImageBytes = bytes;
               thirdImgXFile = image;
               break;
             case 4:
-              selectedFourthImage = file;
+              selectedFourthImage = image;
+              selectedFourthImageBytes = bytes;
               fourthImgXFile = image;
               break;
             case 5:
-              selectedFifthImage = file;
+              selectedFifthImage = image;
+              selectedFifthImageBytes = bytes;
               fifthImgXFile = image;
               break;
           }
@@ -391,13 +400,10 @@ class DashBoardProvider extends ChangeNotifier {
           } else {
             String filePath = imgXFile.path;
             String fileName = filePath.split('/').last;
-            File file = File(filePath);
-            if (await file.exists()) {
-              formData[imageKey] = await MultipartFile(
-                filePath,
-                filename: fileName,
-              );
-            }
+            formData[imageKey] = await MultipartFile(
+              filePath,
+              filename: fileName,
+            );
           }
         }
       }
