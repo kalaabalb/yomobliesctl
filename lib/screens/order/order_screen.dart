@@ -27,6 +27,7 @@ class _OrderScreenState extends State<OrderScreen> {
     super.initState();
     // Auto-load orders when screen is created
     WidgetsBinding.instance.addPostFrameCallback((_) {
+      if (!mounted) return;
       if (context.dataProvider.orders.isEmpty) {
         context.dataProvider.getAllOrders();
       }
