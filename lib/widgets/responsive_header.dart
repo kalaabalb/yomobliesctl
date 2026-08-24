@@ -19,6 +19,14 @@ class ResponsiveHeader extends StatelessWidget {
     this.actionButtonText,
   });
 
+  String _initialFromName(String? value, {String fallback = 'A'}) {
+    final trimmed = value?.trim();
+    if (trimmed == null || trimmed.isEmpty) {
+      return fallback;
+    }
+    return trimmed.substring(0, 1).toUpperCase();
+  }
+
   @override
   Widget build(BuildContext context) {
     final AdminAuthService authService = Get.find<AdminAuthService>();
@@ -36,7 +44,7 @@ class ResponsiveHeader extends StatelessWidget {
                   radius: 18,
                   backgroundColor: primaryColor,
                   child: Text(
-                    currentAdmin?.name?.substring(0, 1).toUpperCase() ?? 'A',
+                    _initialFromName(currentAdmin?.name),
                     style: const TextStyle(
                       color: Colors.white,
                       fontWeight: FontWeight.w600,
@@ -153,7 +161,7 @@ class ResponsiveHeader extends StatelessWidget {
               CircleAvatar(
                 backgroundColor: primaryColor,
                 child: Text(
-                  currentAdmin?.name?.substring(0, 1).toUpperCase() ?? 'A',
+                  _initialFromName(currentAdmin?.name),
                   style: const TextStyle(color: Colors.white),
                 ),
               ),

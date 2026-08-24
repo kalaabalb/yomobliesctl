@@ -288,6 +288,11 @@ class AdminAuthService extends GetxService {
         endpointUrl: 'admin-users/profile',
       );
 
+      if (response.statusCode == 401) {
+        _clearAuthData();
+        return;
+      }
+
       if (response.isOk) {
         final responseBody = _normalizeResponseBody(response.body);
         if (responseBody is Map<String, dynamic>) {
@@ -308,9 +313,12 @@ class AdminAuthService extends GetxService {
       if (kDebugMode) {
         debugPrint('❌ [AUTH] Session restore failed: $e');
       }
+      return;
     }
 
-    _clearAuthData();
+    if (kDebugMode) {
+      debugPrint('⚠️ [AUTH] Session restore returned no usable profile data');
+    }
   }
 
   dynamic _normalizeResponseBody(dynamic body) {

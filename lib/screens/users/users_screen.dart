@@ -24,6 +24,14 @@ class _UsersScreenState extends State<UsersScreen> with WidgetsBindingObserver {
   final RxString _searchQuery = ''.obs;
   bool _initialLoadTriggered = false;
 
+  String _initialFromName(String? value, {String fallback = 'U'}) {
+    final trimmed = value?.trim();
+    if (trimmed == null || trimmed.isEmpty) {
+      return fallback;
+    }
+    return trimmed.substring(0, 1).toUpperCase();
+  }
+
   @override
   void initState() {
     super.initState();
@@ -394,7 +402,7 @@ class _UsersScreenState extends State<UsersScreen> with WidgetsBindingObserver {
                 ),
                 child: Center(
                   child: Text(
-                    user.name?.substring(0, 1).toUpperCase() ?? 'U',
+                    _initialFromName(user.name),
                     style: const TextStyle(
                       color: Colors.white,
                       fontWeight: FontWeight.bold,
