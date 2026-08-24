@@ -15,14 +15,13 @@ build/
 .package-resolve
 .fvm/
 
-# Android
-/android/
-/android-app/
-/keystore/
-
 # iOS
 /ios/
 /ios-app/
+
+# Legacy top-level project folders
+/android-app/
+/keystore/
 
 # Web
 /web/
