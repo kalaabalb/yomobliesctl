@@ -1,7 +1,6 @@
 import 'package:admin_panal_start/utility/responsive_utils.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import '../utility/constants.dart';
 
 class CustomTextField extends StatelessWidget {
   final String labelText;

@@ -17,7 +17,7 @@ class CameraPickerDialog extends StatelessWidget {
       shape: RoundedRectangleBorder(
         borderRadius: BorderRadius.circular(16),
       ),
-      title: Text(
+      title: const Text(
         'Select Image Source',
         style: TextStyle(
           fontSize: 18,
@@ -35,7 +35,7 @@ class CameraPickerDialog extends StatelessWidget {
             title: 'Camera',
             onTap: () => _pickImage(ImageSource.camera, context),
           ),
-          SizedBox(height: 12),
+          const SizedBox(height: 12),
           _buildOptionButton(
             context,
             icon: Icons.photo_library,
@@ -60,12 +60,12 @@ class CameraPickerDialog extends StatelessWidget {
         onTap: onTap,
         borderRadius: BorderRadius.circular(12),
         child: Container(
-          padding: EdgeInsets.all(16),
+          padding: const EdgeInsets.all(16),
           width: double.infinity,
           child: Row(
             children: [
               Icon(icon, color: Colors.blue[600], size: 24),
-              SizedBox(width: 16),
+              const SizedBox(width: 16),
               Text(
                 title,
                 style: TextStyle(
@@ -74,7 +74,7 @@ class CameraPickerDialog extends StatelessWidget {
                   color: Colors.blue[800],
                 ),
               ),
-              Spacer(),
+              const Spacer(),
               Icon(Icons.chevron_right, color: Colors.blue[400]),
             ],
           ),

@@ -64,10 +64,10 @@ class _MultiSelectDropDownState<T> extends State<MultiSelectDropDown<T>> {
                           borderRadius: BorderRadius.circular(4),
                         ),
                         child: isSelected
-                            ? Icon(Icons.check, size: 14, color: Colors.white)
+                            ? const Icon(Icons.check, size: 14, color: Colors.white)
                             : null,
                       ),
-                      SizedBox(width: 12),
+                      const SizedBox(width: 12),
                       Expanded(
                         child: Text(
                           widget.displayItem(item),
@@ -117,7 +117,7 @@ class _MultiSelectDropDownState<T> extends State<MultiSelectDropDown<T>> {
             decoration: BoxDecoration(
               borderRadius: BorderRadius.circular(12),
               color: Colors.white,
-              boxShadow: [
+              boxShadow: const [
                 BoxShadow(
                   color: Colors.black26,
                   blurRadius: 8,
@@ -125,9 +125,9 @@ class _MultiSelectDropDownState<T> extends State<MultiSelectDropDown<T>> {
                 ),
               ],
             ),
-            offset: Offset(0, -8),
+            offset: const Offset(0, -8),
           ),
-          menuItemStyleData: MenuItemStyleData(
+          menuItemStyleData: const MenuItemStyleData(
             height: 48,
             padding: EdgeInsets.symmetric(horizontal: 16),
           ),

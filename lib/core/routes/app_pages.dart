@@ -3,17 +3,17 @@ import 'package:get/get_navigation/src/routes/get_route.dart';
 import '../../screens/main/main_screen.dart';
 
 class AppPages {
-  static const LOGIN = '/login';
-  static const MAIN = '/main';
+  static const loginRoute = '/login';
+  static const mainRoute = '/main';
 
   static final routes = [
     GetPage(
-      name: LOGIN,
-      page: () => LoginScreen(),
+      name: loginRoute,
+      page: () => const LoginScreen(),
     ),
     GetPage(
-      name: MAIN,
-      page: () => MainScreen(),
+      name: mainRoute,
+      page: () => const MainScreen(),
     ),
   ];
 }

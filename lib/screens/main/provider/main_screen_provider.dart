@@ -14,7 +14,7 @@ import '../../variants/variants_screen.dart';
 import '../../variants_type/variants_type_screen.dart';
 
 class MainScreenProvider extends ChangeNotifier {
-  Widget _selectedScreen = DashboardScreen();
+  Widget _selectedScreen = const DashboardScreen();
   String _currentScreenName = 'Dashboard';
 
   Widget get selectedScreen => _selectedScreen;
@@ -25,43 +25,43 @@ class MainScreenProvider extends ChangeNotifier {
 
     switch (screenName) {
       case 'Dashboard':
-        newScreen = DashboardScreen();
+        newScreen = const DashboardScreen();
         break;
       case 'Category':
-        newScreen = CategoryScreen();
+        newScreen = const CategoryScreen();
         break;
       case 'SubCategory':
-        newScreen = SubCategoryScreen();
+        newScreen = const SubCategoryScreen();
         break;
       case 'Brands':
-        newScreen = BrandScreen();
+        newScreen = const BrandScreen();
         break;
       case 'VariantType':
-        newScreen = VariantsTypeScreen();
+        newScreen = const VariantsTypeScreen();
         break;
       case 'Variants':
-        newScreen = VariantsScreen();
+        newScreen = const VariantsScreen();
         break;
       case 'Poster':
-        newScreen = PosterScreen();
+        newScreen = const PosterScreen();
         break;
       case 'Order':
-        newScreen = OrderScreen();
+        newScreen = const OrderScreen();
         break;
       case 'PaymentVerification':
-        newScreen = PaymentVerificationScreen();
+        newScreen = const PaymentVerificationScreen();
         break;
       case 'Ratings':
-        newScreen = RatingsScreen();
+        newScreen = const RatingsScreen();
         break;
       case 'Notifications':
-        newScreen = NotificationScreen();
+        newScreen = const NotificationScreen();
         break;
       case 'Users':
-        newScreen = UsersScreen();
+        newScreen = const UsersScreen();
         break;
       default:
-        newScreen = DashboardScreen();
+        newScreen = const DashboardScreen();
     }
 
     if (_selectedScreen.runtimeType != newScreen.runtimeType) {

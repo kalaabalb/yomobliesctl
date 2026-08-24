@@ -13,7 +13,6 @@ import '../screens/posters/provider/poster_provider.dart';
 import '../screens/order/provider/order_provider.dart';
 import '../screens/ratings/provider/rating_provider.dart';
 import '../screens/notification/provider/notification_provider.dart';
-import '../services/admin_auth_service.dart';
 
 extension ContextExtensions on BuildContext {
   DataProvider get dataProvider =>

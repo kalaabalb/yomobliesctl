@@ -17,9 +17,9 @@ class NotificationListSection extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       padding: EdgeInsets.all(ResponsiveUtils.getPadding(context)),
-      decoration: BoxDecoration(
+      decoration: const BoxDecoration(
         color: secondaryColor,
-        borderRadius: const BorderRadius.all(Radius.circular(10)),
+        borderRadius: BorderRadius.all(Radius.circular(10)),
       ),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
@@ -33,7 +33,7 @@ class NotificationListSection extends StatelessWidget {
             child: Consumer<DataProvider>(
               builder: (context, dataProvider, child) {
                 return ResponsiveDataTable(
-                  columns: [
+                  columns: const [
                     DataColumn(label: Text("Title")),
                     DataColumn(label: Text("Description")),
                     DataColumn(label: Text("Send Date")),
@@ -101,7 +101,7 @@ DataRow notificationDataRow(MyNotification notificationInfo, int index,
           onPressed: () {
             if (edit != null) edit();
           },
-          icon: Icon(
+          icon: const Icon(
             Icons.remove_red_eye_sharp,
             color: Colors.white,
           ))),
@@ -109,7 +109,7 @@ DataRow notificationDataRow(MyNotification notificationInfo, int index,
           onPressed: () {
             if (delete != null) delete();
           },
-          icon: Icon(
+          icon: const Icon(
             Icons.delete,
             color: Colors.red,
           ))),

@@ -40,7 +40,7 @@ class CategorySubmitForm extends StatelessWidget {
             ),
             Gap(ResponsiveUtils.getPadding(context)),
             _buildActionButtons(context),
-            SizedBox(height: 8), // Small bottom padding
+            const SizedBox(height: 8), // Small bottom padding
           ],
         ),
       ),
@@ -66,8 +66,8 @@ class CategorySubmitForm extends StatelessWidget {
                 },
               ),
             ),
-            SizedBox(height: 8),
-            Text(
+            const SizedBox(height: 8),
+            const Text(
               'Tap to add category image',
               style: TextStyle(
                 color: Colors.white70,
@@ -82,7 +82,7 @@ class CategorySubmitForm extends StatelessWidget {
 
   Widget _buildActionButtons(BuildContext context) {
     return Container(
-      padding: EdgeInsets.only(top: 16, bottom: 8),
+      padding: const EdgeInsets.only(top: 16, bottom: 8),
       child: Row(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
@@ -90,19 +90,19 @@ class CategorySubmitForm extends StatelessWidget {
             style: ElevatedButton.styleFrom(
               foregroundColor: Colors.white,
               backgroundColor: secondaryColor,
-              padding: EdgeInsets.symmetric(horizontal: 20, vertical: 12),
+              padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 12),
             ),
             onPressed: () {
               Navigator.of(context).pop();
             },
-            child: Text('Cancel'),
+            child: const Text('Cancel'),
           ),
           Gap(ResponsiveUtils.getPadding(context)),
           ElevatedButton(
             style: ElevatedButton.styleFrom(
               foregroundColor: Colors.white,
               backgroundColor: primaryColor,
-              padding: EdgeInsets.symmetric(horizontal: 20, vertical: 12),
+              padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 12),
             ),
             onPressed: () {
               if (context.categoryProvider.addCategoryFormKey.currentState!
@@ -113,7 +113,7 @@ class CategorySubmitForm extends StatelessWidget {
                 Navigator.of(context).pop();
               }
             },
-            child: Text('Submit'),
+            child: const Text('Submit'),
           ),
         ],
       ),

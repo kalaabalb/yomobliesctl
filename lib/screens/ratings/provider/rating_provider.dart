@@ -1,7 +1,5 @@
-import 'package:admin_panal_start/core/data/data_provider.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:get/get.dart';
-import '../../../models/api_response.dart';
 import '../../../models/rating.dart';
 import '../../../services/http_services.dart';
 import '../../../utility/snack_bar_helper.dart';

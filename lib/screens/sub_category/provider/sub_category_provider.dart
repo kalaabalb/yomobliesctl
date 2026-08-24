@@ -1,4 +1,3 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import '../../../core/data/data_provider.dart';
@@ -8,7 +7,6 @@ import '../../../services/admin_auth_service.dart';
 import '../../../services/http_services.dart';
 import 'package:admin_panal_start/models/api_response.dart';
 import 'package:admin_panal_start/utility/snack_bar_helper.dart';
-import 'package:admin_panal_start/utility/error_utils.dart';
 
 class SubCategoryProvider extends ChangeNotifier {
   final HttpService service = Get.find<HttpService>();
@@ -209,17 +207,17 @@ class SubCategoryProvider extends ChangeNotifier {
       bool confirmDelete = await showDialog(
             context: Get.context!,
             builder: (context) => AlertDialog(
-              title: Text("Delete Sub Category"),
+              title: const Text("Delete Sub Category"),
               content: Text(
                   "Are you sure you want to delete '${subCategory.name}'? This action cannot be undone."),
               actions: [
                 TextButton(
                   onPressed: () => Navigator.of(context).pop(false),
-                  child: Text("Cancel"),
+                  child: const Text("Cancel"),
                 ),
                 TextButton(
                   onPressed: () => Navigator.of(context).pop(true),
-                  child: Text("Delete", style: TextStyle(color: Colors.red)),
+                  child: const Text("Delete", style: TextStyle(color: Colors.red)),
                 ),
               ],
             ),
@@ -269,7 +267,7 @@ class SubCategoryProvider extends ChangeNotifier {
       subCategoryNameCtrl.text = subCategory.name ?? '';
 
       // Find and set the category with a small delay to ensure data is loaded
-      await Future.delayed(Duration(milliseconds: 100));
+      await Future.delayed(const Duration(milliseconds: 100));
 
       selectedCategory = _dataProvider.categories.firstWhereOrNull(
         (element) => element.sId == subCategory.categoryId?.sId,

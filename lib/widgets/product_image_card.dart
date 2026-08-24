@@ -1,4 +1,3 @@
-import 'dart:typed_data';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:cached_network_image/cached_network_image.dart';
@@ -27,7 +26,7 @@ class ProductImageCard extends StatelessWidget {
             imageUrlForUpdateImage!.isNotEmpty &&
             imageUrlForUpdateImage != 'no_url');
 
-    return Container(
+    return SizedBox(
       width: 80,
       child: Column(
         children: [
@@ -51,7 +50,7 @@ class ProductImageCard extends StatelessWidget {
 
                   // Camera icon for empty state
                   if (!hasImage)
-                    Center(
+                    const Center(
                       child: Column(
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: [
@@ -77,10 +76,10 @@ class ProductImageCard extends StatelessWidget {
           ),
 
           // Label text
-          SizedBox(height: 4),
+          const SizedBox(height: 4),
           Text(
             labelText,
-            style: TextStyle(
+            style: const TextStyle(
               color: Colors.white,
               fontSize: 11,
               fontWeight: FontWeight.w500,
@@ -92,16 +91,16 @@ class ProductImageCard extends StatelessWidget {
 
           // Remove button if image exists
           if (hasImage) ...[
-            SizedBox(height: 4),
+            const SizedBox(height: 4),
             GestureDetector(
               onTap: onRemoveImage,
               child: Container(
-                padding: EdgeInsets.symmetric(horizontal: 6, vertical: 2),
+                padding: const EdgeInsets.symmetric(horizontal: 6, vertical: 2),
                 decoration: BoxDecoration(
                   color: Colors.red.shade800,
                   borderRadius: BorderRadius.circular(4),
                 ),
-                child: Row(
+                child: const Row(
                   mainAxisSize: MainAxisSize.min,
                   children: [
                     Icon(Icons.close, size: 10, color: Colors.white),
@@ -144,7 +143,7 @@ class ProductImageCard extends StatelessWidget {
           fit: BoxFit.cover,
           width: double.infinity,
           height: double.infinity,
-          placeholder: (context, url) => Center(
+          placeholder: (context, url) => const Center(
             child: CircularProgressIndicator(
               strokeWidth: 1.5,
               valueColor: AlwaysStoppedAnimation<Color>(primaryColor),

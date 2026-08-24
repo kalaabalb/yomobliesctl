@@ -9,6 +9,8 @@ import 'components/send_notification_form.dart';
 import 'package:admin_panal_start/utility/responsive_utils.dart';
 
 class NotificationScreen extends StatefulWidget {
+  const NotificationScreen({super.key});
+
   @override
   State<NotificationScreen> createState() => _NotificationScreenState();
 }
@@ -33,8 +35,8 @@ class _NotificationScreenState extends State<NotificationScreen> {
         padding: EdgeInsets.all(ResponsiveUtils.getPadding(context)),
         child: Column(
           children: [
-            NotificationHeader(),
-            Gap(defaultPadding),
+            const NotificationHeader(),
+            const Gap(defaultPadding),
             Row(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
@@ -65,8 +67,8 @@ class _NotificationScreenState extends State<NotificationScreen> {
                             onPressed: () {
                               sendNotificationFormForm(context);
                             },
-                            icon: Icon(Icons.add),
-                            label: Text("Send New"),
+                            icon: const Icon(Icons.add),
+                            label: const Text("Send New"),
                           ),
                           Gap(ResponsiveUtils.isMobile(context) ? 8 : 20),
                           IconButton(
@@ -74,11 +76,11 @@ class _NotificationScreenState extends State<NotificationScreen> {
                                 context.dataProvider
                                     .getAllNotifications(showSnack: true);
                               },
-                              icon: Icon(Icons.refresh)),
+                              icon: const Icon(Icons.refresh)),
                         ],
                       ),
-                      Gap(defaultPadding),
-                      NotificationListSection(),
+                      const Gap(defaultPadding),
+                      const NotificationListSection(),
                     ],
                   ),
                 ),

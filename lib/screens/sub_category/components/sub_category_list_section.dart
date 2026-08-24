@@ -3,7 +3,6 @@ import 'package:admin_panal_start/utility/extensions.dart';
 import 'package:admin_panal_start/utility/responsive_utils.dart';
 import 'package:admin_panal_start/widgets/responsive_data_table.dart';
 import 'package:get/get.dart';
-import 'package:get/get_core/src/get_main.dart';
 import '../../../core/data/data_provider.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
@@ -83,7 +82,7 @@ DataRow subCategoryDataRow(
               ),
               child: Center(
                 child: Text(
-                  '${index}',
+                  '$index',
                   style: const TextStyle(
                     color: Colors.white,
                     fontSize: 14,

@@ -8,6 +8,8 @@ import 'package:gap/gap.dart';
 import '../../utility/constants.dart';
 
 class PosterScreen extends StatefulWidget {
+  const PosterScreen({super.key});
+
   @override
   State<PosterScreen> createState() => _PosterScreenState();
 }
@@ -32,8 +34,8 @@ class _PosterScreenState extends State<PosterScreen> {
         padding: EdgeInsets.all(ResponsiveUtils.getPadding(context)),
         child: Column(
           children: [
-            PosterHeader(),
-            SizedBox(height: defaultPadding),
+            const PosterHeader(),
+            const SizedBox(height: defaultPadding),
             Row(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
@@ -64,8 +66,8 @@ class _PosterScreenState extends State<PosterScreen> {
                             onPressed: () {
                               showAddPosterForm(context, null);
                             },
-                            icon: Icon(Icons.add),
-                            label: Text("Add New"),
+                            icon: const Icon(Icons.add),
+                            label: const Text("Add New"),
                           ),
                           Gap(ResponsiveUtils.isMobile(context) ? 8 : 20),
                           IconButton(
@@ -73,12 +75,12 @@ class _PosterScreenState extends State<PosterScreen> {
                               context.dataProvider
                                   .getAllPosters(showSnack: true);
                             },
-                            icon: Icon(Icons.refresh),
+                            icon: const Icon(Icons.refresh),
                           ),
                         ],
                       ),
-                      Gap(defaultPadding),
-                      PosterListSection(),
+                      const Gap(defaultPadding),
+                      const PosterListSection(),
                     ],
                   ),
                 ),

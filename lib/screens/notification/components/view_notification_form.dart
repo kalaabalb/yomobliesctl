@@ -23,12 +23,12 @@ class ViewNotificationForm extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               Text(notification?.title ?? 'N/A',
-                  style: TextStyle(fontSize: 16)),
+                  style: const TextStyle(fontSize: 16)),
             ],
           ),
-          Gap(10),
+          const Gap(10),
           Container(
-            margin: EdgeInsets.only(top: 20),
+            margin: const EdgeInsets.only(top: 20),
             padding: EdgeInsets.all(ResponsiveUtils.getPadding(context)),
             decoration: BoxDecoration(
               color: secondaryColor,
@@ -66,21 +66,21 @@ class ViewNotificationForm extends StatelessWidget {
                       number: totalSend,
                       percentage: calculatePercentage(totalSend),
                     ),
-                    Gap(8),
+                    const Gap(8),
                     NotificationCard(
                       text: 'Total Opened',
                       color: Colors.green,
                       number: totalOpened,
                       percentage: calculatePercentage(totalOpened),
                     ),
-                    Gap(8),
+                    const Gap(8),
                     NotificationCard(
                       text: 'Total Failed',
                       color: Colors.red,
                       number: totalFailed,
                       percentage: calculatePercentage(totalFailed),
                     ),
-                    Gap(8),
+                    const Gap(8),
                     NotificationCard(
                       text: 'Total Error',
                       color: Colors.yellow,
@@ -92,7 +92,7 @@ class ViewNotificationForm extends StatelessWidget {
               },
             ),
           ),
-          Gap(10),
+          const Gap(10),
           Row(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [

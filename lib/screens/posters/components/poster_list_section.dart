@@ -4,12 +4,10 @@ import 'package:admin_panal_start/utility/responsive_utils.dart';
 import 'package:admin_panal_start/widgets/responsive_data_table.dart';
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:get/get.dart';
-import 'package:get/get_core/src/get_main.dart';
 import '../../../core/data/data_provider.dart';
 import 'add_poster_form.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import '../../../models/poster.dart';
 import '../../../utility/constants.dart';
 
 class PosterListSection extends StatelessWidget {
@@ -178,7 +176,7 @@ Widget _buildPosterImage(String? imageUrl) {
     );
   }
 
-  return Container(
+  return SizedBox(
     width: 60,
     height: 40,
     child: ClipRRect(
@@ -195,13 +193,13 @@ Widget _buildPosterImage(String? imageUrl) {
             color: Colors.grey[800],
             borderRadius: BorderRadius.circular(6),
           ),
-          child: Center(
+          child: const Center(
             child: SizedBox(
               width: 16,
               height: 16,
               child: CircularProgressIndicator(
                 strokeWidth: 2,
-                valueColor: const AlwaysStoppedAnimation<Color>(Colors.white),
+                valueColor: AlwaysStoppedAnimation<Color>(Colors.white),
               ),
             ),
           ),

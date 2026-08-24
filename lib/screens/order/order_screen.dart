@@ -13,6 +13,8 @@ import '../../widgets/responsive_header.dart';
 import 'components/view_order_form.dart';
 
 class OrderScreen extends StatefulWidget {
+  const OrderScreen({super.key});
+
   @override
   State<OrderScreen> createState() => _OrderScreenState();
 }
@@ -39,8 +41,8 @@ class _OrderScreenState extends State<OrderScreen> {
         padding: EdgeInsets.all(ResponsiveUtils.getPadding(context)),
         child: Column(
           children: [
-            OrderHeader(),
-            Gap(defaultPadding),
+            const OrderHeader(),
+            const Gap(defaultPadding),
             Row(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
@@ -49,8 +51,8 @@ class _OrderScreenState extends State<OrderScreen> {
                   child: Column(
                     children: [
                       _buildOrderHeader(context),
-                      Gap(defaultPadding),
-                      OrderListSection(),
+                      const Gap(defaultPadding),
+                      const OrderListSection(),
                     ],
                   ),
                 ),
@@ -76,18 +78,18 @@ class _OrderScreenState extends State<OrderScreen> {
               ),
             ],
           ),
-          Gap(8),
+          const Gap(8),
           Row(
             children: [
               Expanded(
                 child: _buildFilterDropdown(context),
               ),
-              Gap(8),
+              const Gap(8),
               IconButton(
                 onPressed: () {
                   context.dataProvider.getAllOrders(showSnack: true);
                 },
-                icon: Icon(Icons.refresh),
+                icon: const Icon(Icons.refresh),
               ),
             ],
           ),
@@ -103,17 +105,17 @@ class _OrderScreenState extends State<OrderScreen> {
               style: Theme.of(context).textTheme.titleMedium,
             ),
           ),
-          Gap(20),
+          const Gap(20),
           SizedBox(
             width: 280,
             child: _buildFilterDropdown(context),
           ),
-          Gap(40),
+          const Gap(40),
           IconButton(
             onPressed: () {
               context.dataProvider.getAllOrders(showSnack: true);
             },
-            icon: Icon(Icons.refresh),
+            icon: const Icon(Icons.refresh),
           ),
         ],
       );
@@ -124,7 +126,7 @@ class _OrderScreenState extends State<OrderScreen> {
     return CustomDropdown(
       hintText: 'Filter Orders',
       initialValue: _selectedFilter,
-      items: [
+      items: const [
         'All orders',
         'pending',
         'processing',
@@ -176,9 +178,9 @@ class OrderListSection extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       padding: EdgeInsets.all(ResponsiveUtils.getPadding(context)),
-      decoration: BoxDecoration(
+      decoration: const BoxDecoration(
         color: secondaryColor,
-        borderRadius: const BorderRadius.all(Radius.circular(10)),
+        borderRadius: BorderRadius.all(Radius.circular(10)),
       ),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
@@ -189,7 +191,7 @@ class OrderListSection extends StatelessWidget {
             child: Consumer<DataProvider>(
               builder: (context, dataProvider, child) {
                 return ResponsiveDataTable(
-                  columns: [
+                  columns: const [
                     DataColumn(label: Text("Customer Name")),
                     DataColumn(label: Text("Order Amount")),
                     DataColumn(label: Text("Payment")),
@@ -280,7 +282,7 @@ DataRow orderDataRow(Order orderInfo, int index,
           onPressed: () {
             if (edit != null) edit();
           },
-          icon: Icon(Icons.edit, color: Colors.white),
+          icon: const Icon(Icons.edit, color: Colors.white),
         ),
       ),
       DataCell(
@@ -288,7 +290,7 @@ DataRow orderDataRow(Order orderInfo, int index,
           onPressed: () {
             if (delete != null) delete();
           },
-          icon: Icon(Icons.delete, color: Colors.red),
+          icon: const Icon(Icons.delete, color: Colors.red),
         ),
       ),
     ],

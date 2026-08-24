@@ -1,10 +1,8 @@
-import 'dart:typed_data';
 import 'package:admin_panal_start/utility/snack_bar_helper.dart';
 import 'package:admin_panal_start/models/api_response.dart';
 import 'package:admin_panal_start/widgets/camera_picker_dialog.dart';
 import 'package:flutter/material.dart';
 import '../../../services/http_services.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/foundation.dart' hide Category;
 import 'package:get/get.dart';
 import 'package:image_picker/image_picker.dart';
@@ -215,17 +213,17 @@ class PosterProvider extends ChangeNotifier {
       bool confirmDelete = await showDialog(
             context: Get.context!,
             builder: (context) => AlertDialog(
-              title: Text("Delete Poster"),
+              title: const Text("Delete Poster"),
               content: Text(
                   "Are you sure you want to delete '${poster.posterName}'? This action cannot be undone."),
               actions: [
                 TextButton(
                   onPressed: () => Navigator.of(context).pop(false),
-                  child: Text("Cancel"),
+                  child: const Text("Cancel"),
                 ),
                 TextButton(
                   onPressed: () => Navigator.of(context).pop(true),
-                  child: Text("Delete", style: TextStyle(color: Colors.red)),
+                  child: const Text("Delete", style: TextStyle(color: Colors.red)),
                 ),
               ],
             ),

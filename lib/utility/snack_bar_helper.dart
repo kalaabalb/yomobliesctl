@@ -10,7 +10,7 @@ class SnackBarHelper {
       backgroundColor: Colors.green,
       colorText: Colors.white,
       snackPosition: SnackPosition.BOTTOM,
-      duration: Duration(seconds: 3),
+      duration: const Duration(seconds: 3),
     );
   }
 
@@ -24,7 +24,7 @@ class SnackBarHelper {
       backgroundColor: Colors.red,
       colorText: Colors.white,
       snackPosition: SnackPosition.BOTTOM,
-      duration: Duration(seconds: 4),
+      duration: const Duration(seconds: 4),
     );
   }
 
@@ -37,7 +37,7 @@ class SnackBarHelper {
       backgroundColor: Colors.red,
       colorText: Colors.white,
       snackPosition: SnackPosition.BOTTOM,
-      duration: Duration(seconds: 4),
+      duration: const Duration(seconds: 4),
     );
   }
 
@@ -48,7 +48,7 @@ class SnackBarHelper {
       backgroundColor: Colors.blue,
       colorText: Colors.white,
       snackPosition: SnackPosition.BOTTOM,
-      duration: Duration(seconds: 3),
+      duration: const Duration(seconds: 3),
     );
   }
 
@@ -59,7 +59,7 @@ class SnackBarHelper {
       backgroundColor: Colors.orange,
       colorText: Colors.white,
       snackPosition: SnackPosition.BOTTOM,
-      duration: Duration(seconds: 4),
+      duration: const Duration(seconds: 4),
     );
   }
 }

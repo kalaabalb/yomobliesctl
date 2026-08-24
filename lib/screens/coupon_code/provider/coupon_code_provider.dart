@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import '../../../models/coupon.dart';
 import '../../../models/product.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:get/get.dart';
 import '../../../core/data/data_provider.dart';
 import '../../../models/category.dart';
@@ -269,17 +268,17 @@ class CouponCodeProvider extends ChangeNotifier {
       bool confirmDelete = await showDialog(
             context: Get.context!,
             builder: (context) => AlertDialog(
-              title: Text("Delete Coupon"),
+              title: const Text("Delete Coupon"),
               content: Text(
                   "Are you sure you want to delete '${coupon.couponCode}'? This action cannot be undone."),
               actions: [
                 TextButton(
                   onPressed: () => Navigator.of(context).pop(false),
-                  child: Text("Cancel"),
+                  child: const Text("Cancel"),
                 ),
                 TextButton(
                   onPressed: () => Navigator.of(context).pop(true),
-                  child: Text("Delete", style: TextStyle(color: Colors.red)),
+                  child: const Text("Delete", style: TextStyle(color: Colors.red)),
                 ),
               ],
             ),
@@ -329,7 +328,7 @@ class CouponCodeProvider extends ChangeNotifier {
       selectedDiscountType = coupon.discountType ?? 'fixed';
       discountAmountCtrl.text = '${coupon.discountAmount ?? ''}';
       minimumPurchaseAmountCtrl.text = '${coupon.minimumPurchaseAmount ?? ''}';
-      endDateCtrl.text = '${coupon.endDate ?? ''}';
+      endDateCtrl.text = coupon.endDate ?? '';
       selectedCouponStatus = coupon.status ?? 'active';
 
       // Set category and filter subcategories
@@ -338,7 +337,7 @@ class CouponCodeProvider extends ChangeNotifier {
       );
 
       if (selectedCategory != null) {
-        await Future.delayed(Duration(milliseconds: 100));
+        await Future.delayed(const Duration(milliseconds: 100));
         filterSubCategoriesByCategory(selectedCategory);
       }
 
@@ -348,7 +347,7 @@ class CouponCodeProvider extends ChangeNotifier {
       );
 
       if (selectedSubCategory != null) {
-        await Future.delayed(Duration(milliseconds: 100));
+        await Future.delayed(const Duration(milliseconds: 100));
         filterProductsBySubCategory(selectedSubCategory);
       }
 

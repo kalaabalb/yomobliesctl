@@ -73,7 +73,7 @@ class CustomDropdown<T> extends StatelessWidget {
           fontSize: ResponsiveUtils.isMobile(context) ? 14 : 16,
           color: Colors.white,
         ),
-        dropdownColor: Color(0xFF2A2D3E),
+        dropdownColor: const Color(0xFF2A2D3E),
         icon: Icon(Icons.arrow_drop_down, color: Colors.grey.shade400),
         borderRadius: BorderRadius.circular(12),
         elevation: 4,

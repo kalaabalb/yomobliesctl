@@ -1,6 +1,6 @@
 class AssetsRes {
   AssetsRes._();
 
-  static const String PROJECT_NAME = 'admin';
-  static const String PROJECT_VERSION = '1.0.0+1';
+  static const String projectName = 'admin';
+  static const String projectVersion = '1.0.0+1';
 }

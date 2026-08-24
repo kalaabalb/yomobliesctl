@@ -6,7 +6,7 @@ import 'package:get_storage/get_storage.dart';
 import '../utility/constants.dart';
 
 class HttpService extends GetConnect {
-  final String baseUrl = MAIN_URL;
+  final String baseUrl = mainUrl;
   final GetStorage _storage = GetStorage();
   final RxString _authToken = ''.obs;
 
@@ -260,7 +260,7 @@ class HttpService extends GetConnect {
           'Please wait a moment and try again',
           backgroundColor: Colors.orange,
           colorText: Colors.white,
-          duration: Duration(seconds: 5),
+          duration: const Duration(seconds: 5),
         );
       }
       return response;
@@ -280,12 +280,12 @@ class HttpService extends GetConnect {
             'Please login again',
             backgroundColor: Colors.orange,
             colorText: Colors.white,
-            duration: Duration(seconds: 3),
+            duration: const Duration(seconds: 3),
           );
         }
 
         // Use delayed navigation to avoid context issues
-        Future.delayed(Duration(seconds: 2), () {
+        Future.delayed(const Duration(seconds: 2), () {
           if (Get.currentRoute != '/login') {
             if (kDebugMode) {
               print('🔄 [HTTP] Navigating to login due to unauthorized access');
@@ -411,7 +411,7 @@ class HttpService extends GetConnect {
         if (attempt == maxRetries - 1) {
           rethrow;
         }
-        await Future.delayed(Duration(seconds: 1));
+        await Future.delayed(const Duration(seconds: 1));
       }
     }
     return _buildErrorResponse('Max retries exceeded');

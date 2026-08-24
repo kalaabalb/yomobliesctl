@@ -32,10 +32,12 @@ void main() async {
   final adminAuthService = Get.put(AdminAuthService(), permanent: true);
   await adminAuthService.restoreSession();
 
-  runApp(MyApp());
+  runApp(const MyApp());
 }
 
 class MyApp extends StatelessWidget {
+  const MyApp({super.key});
+
   @override
   Widget build(BuildContext context) {
     return MultiProvider(
@@ -170,8 +172,8 @@ class MyApp extends StatelessWidget {
           ).apply(bodyColor: Colors.white),
           canvasColor: secondaryColor,
         ),
-        initialRoute: AppPages.LOGIN,
-        unknownRoute: GetPage(name: '/notFound', page: () => LoginScreen()),
+        initialRoute: AppPages.loginRoute,
+        unknownRoute: GetPage(name: '/notFound', page: () => const LoginScreen()),
         defaultTransition: Transition.cupertino,
         getPages: AppPages.routes,
       ),

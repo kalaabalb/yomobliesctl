@@ -55,8 +55,8 @@ class PosterSubmitForm extends StatelessWidget {
                 },
               ),
             ),
-            SizedBox(height: 8),
-            Text(
+            const SizedBox(height: 8),
+            const Text(
               'Tap to add poster image',
               style: TextStyle(
                 color: Colors.white70,
@@ -85,7 +85,7 @@ class PosterSubmitForm extends StatelessWidget {
 
   Widget _buildActionButtons(BuildContext context) {
     return Container(
-      padding: EdgeInsets.only(top: 16),
+      padding: const EdgeInsets.only(top: 16),
       child: Row(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
@@ -93,19 +93,19 @@ class PosterSubmitForm extends StatelessWidget {
             style: ElevatedButton.styleFrom(
               foregroundColor: Colors.white,
               backgroundColor: secondaryColor,
-              padding: EdgeInsets.symmetric(horizontal: 20, vertical: 12),
+              padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 12),
             ),
             onPressed: () {
               Navigator.of(context).pop();
             },
-            child: Text('Cancel'),
+            child: const Text('Cancel'),
           ),
           Gap(ResponsiveUtils.getPadding(context)),
           ElevatedButton(
             style: ElevatedButton.styleFrom(
               foregroundColor: Colors.white,
               backgroundColor: primaryColor,
-              padding: EdgeInsets.symmetric(horizontal: 20, vertical: 12),
+              padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 12),
             ),
             onPressed: () {
               if (context.posterProvider.addPosterFormKey.currentState!
@@ -115,7 +115,7 @@ class PosterSubmitForm extends StatelessWidget {
                 Navigator.of(context).pop();
               }
             },
-            child: Text('Submit'),
+            child: const Text('Submit'),
           ),
         ],
       ),

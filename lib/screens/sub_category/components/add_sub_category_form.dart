@@ -40,7 +40,7 @@ class SubCategorySubmitForm extends StatelessWidget {
       return Column(
         children: [
           _buildCategoryDropdown(context),
-          Gap(8),
+          const Gap(8),
           _buildNameField(context),
         ],
       );
@@ -48,7 +48,7 @@ class SubCategorySubmitForm extends StatelessWidget {
       return Row(
         children: [
           Expanded(child: _buildCategoryDropdown(context)),
-          Gap(8),
+          const Gap(8),
           Expanded(child: _buildNameField(context)),
         ],
       );
@@ -96,7 +96,7 @@ class SubCategorySubmitForm extends StatelessWidget {
 
   Widget _buildActionButtons(BuildContext context) {
     return Container(
-      padding: EdgeInsets.only(top: 16),
+      padding: const EdgeInsets.only(top: 16),
       child: Row(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
@@ -104,19 +104,19 @@ class SubCategorySubmitForm extends StatelessWidget {
             style: ElevatedButton.styleFrom(
               foregroundColor: Colors.white,
               backgroundColor: secondaryColor,
-              padding: EdgeInsets.symmetric(horizontal: 20, vertical: 12),
+              padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 12),
             ),
             onPressed: () {
               Navigator.of(context).pop();
             },
-            child: Text('Cancel'),
+            child: const Text('Cancel'),
           ),
           Gap(ResponsiveUtils.getPadding(context)),
           ElevatedButton(
             style: ElevatedButton.styleFrom(
               foregroundColor: Colors.white,
               backgroundColor: primaryColor,
-              padding: EdgeInsets.symmetric(horizontal: 20, vertical: 12),
+              padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 12),
             ),
             onPressed: () {
               if (context
@@ -128,7 +128,7 @@ class SubCategorySubmitForm extends StatelessWidget {
                 Navigator.of(context).pop();
               }
             },
-            child: Text('Submit'),
+            child: const Text('Submit'),
           ),
         ],
       ),

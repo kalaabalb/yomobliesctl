@@ -76,7 +76,7 @@ class _ProductSubmitFormState extends State<ProductSubmitForm> {
             _buildVariantSection(context),
             SizedBox(height: ResponsiveUtils.getPadding(context)),
             _buildActionButtons(context),
-            SizedBox(height: 8),
+            const SizedBox(height: 8),
           ],
         ),
       ),
@@ -93,11 +93,11 @@ class _ProductSubmitFormState extends State<ProductSubmitForm> {
     ];
 
     return Container(
-      padding: EdgeInsets.symmetric(vertical: 8),
+      padding: const EdgeInsets.symmetric(vertical: 8),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          Text(
+          const Text(
             'Product Images',
             style: TextStyle(
               fontSize: 14,
@@ -105,7 +105,7 @@ class _ProductSubmitFormState extends State<ProductSubmitForm> {
               color: Colors.white,
             ),
           ),
-          SizedBox(height: 8),
+          const SizedBox(height: 8),
           Wrap(
             spacing: 8,
             runSpacing: 8,
@@ -185,18 +185,18 @@ class _ProductSubmitFormState extends State<ProductSubmitForm> {
         ? Column(
             children: [
               _buildCategoryDropdown(context),
-              SizedBox(height: 8),
+              const SizedBox(height: 8),
               _buildSubCategoryDropdown(context),
-              SizedBox(height: 8),
+              const SizedBox(height: 8),
               _buildBrandDropdown(context),
             ],
           )
         : Row(
             children: [
               Expanded(child: _buildCategoryDropdown(context)),
-              SizedBox(width: 8),
+              const SizedBox(width: 8),
               Expanded(child: _buildSubCategoryDropdown(context)),
-              SizedBox(width: 8),
+              const SizedBox(width: 8),
               Expanded(child: _buildBrandDropdown(context)),
             ],
           );
@@ -291,14 +291,14 @@ class _ProductSubmitFormState extends State<ProductSubmitForm> {
                   return null;
                 },
               ),
-              SizedBox(height: 8),
+              const SizedBox(height: 8),
               CustomTextField(
                 controller: context.dashBoardProvider.productOffPriceCtrl,
                 labelText: 'Offer price',
                 inputType: TextInputType.number,
                 onSave: (val) {},
               ),
-              SizedBox(height: 8),
+              const SizedBox(height: 8),
               CustomTextField(
                 controller: context.dashBoardProvider.productQntCtrl,
                 labelText: 'Quantity',
@@ -329,7 +329,7 @@ class _ProductSubmitFormState extends State<ProductSubmitForm> {
                   },
                 ),
               ),
-              SizedBox(width: 8),
+              const SizedBox(width: 8),
               Expanded(
                 child: CustomTextField(
                   controller: context.dashBoardProvider.productOffPriceCtrl,
@@ -338,7 +338,7 @@ class _ProductSubmitFormState extends State<ProductSubmitForm> {
                   onSave: (val) {},
                 ),
               ),
-              SizedBox(width: 8),
+              const SizedBox(width: 8),
               Expanded(
                 child: CustomTextField(
                   controller: context.dashBoardProvider.productQntCtrl,
@@ -362,14 +362,14 @@ class _ProductSubmitFormState extends State<ProductSubmitForm> {
         ? Column(
             children: [
               _buildVariantTypeDropdown(context),
-              SizedBox(height: 8),
+              const SizedBox(height: 8),
               _buildVariantMultiSelect(context),
             ],
           )
         : Row(
             children: [
               Expanded(child: _buildVariantTypeDropdown(context)),
-              SizedBox(width: 8),
+              const SizedBox(width: 8),
               Expanded(child: _buildVariantMultiSelect(context)),
             ],
           );
@@ -413,7 +413,7 @@ class _ProductSubmitFormState extends State<ProductSubmitForm> {
 
   Widget _buildActionButtons(BuildContext context) {
     return Container(
-      padding: EdgeInsets.only(top: 16, bottom: 8),
+      padding: const EdgeInsets.only(top: 16, bottom: 8),
       child: Row(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
@@ -421,19 +421,19 @@ class _ProductSubmitFormState extends State<ProductSubmitForm> {
             style: ElevatedButton.styleFrom(
               foregroundColor: Colors.white,
               backgroundColor: secondaryColor,
-              padding: EdgeInsets.symmetric(horizontal: 20, vertical: 12),
+              padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 12),
             ),
             onPressed: () {
               Navigator.of(context).pop();
             },
-            child: Text('Cancel'),
+            child: const Text('Cancel'),
           ),
           SizedBox(width: ResponsiveUtils.getPadding(context)),
           ElevatedButton(
             style: ElevatedButton.styleFrom(
               foregroundColor: Colors.white,
               backgroundColor: primaryColor,
-              padding: EdgeInsets.symmetric(horizontal: 20, vertical: 12),
+              padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 12),
             ),
             onPressed: () {
               if (context.dashBoardProvider.addProductFormKey.currentState!
@@ -444,7 +444,7 @@ class _ProductSubmitFormState extends State<ProductSubmitForm> {
                 Navigator.of(context).pop();
               }
             },
-            child: Text('Submit'),
+            child: const Text('Submit'),
           ),
         ],
       ),

@@ -17,9 +17,9 @@ class OrderListSection extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       padding: EdgeInsets.all(ResponsiveUtils.getPadding(context)),
-      decoration: BoxDecoration(
+      decoration: const BoxDecoration(
         color: secondaryColor,
-        borderRadius: const BorderRadius.all(Radius.circular(10)),
+        borderRadius: BorderRadius.all(Radius.circular(10)),
       ),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
@@ -30,7 +30,7 @@ class OrderListSection extends StatelessWidget {
             child: Consumer<DataProvider>(
               builder: (context, dataProvider, child) {
                 return ResponsiveDataTable(
-                  columns: [
+                  columns: const [
                     DataColumn(label: Text("Customer Name")),
                     DataColumn(label: Text("Order Amount")),
                     DataColumn(label: Text("Payment")),
@@ -115,7 +115,7 @@ DataRow orderDataRow(Order orderInfo, int index,
           onPressed: () {
             if (edit != null) edit();
           },
-          icon: Icon(Icons.edit, color: Colors.white),
+          icon: const Icon(Icons.edit, color: Colors.white),
         ),
       ),
       DataCell(
@@ -123,7 +123,7 @@ DataRow orderDataRow(Order orderInfo, int index,
           onPressed: () {
             if (delete != null) delete();
           },
-          icon: Icon(Icons.delete, color: Colors.red),
+          icon: const Icon(Icons.delete, color: Colors.red),
         ),
       ),
     ],

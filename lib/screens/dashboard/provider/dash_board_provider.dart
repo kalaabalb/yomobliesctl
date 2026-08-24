@@ -1,4 +1,3 @@
-import 'dart:typed_data';
 import 'package:admin_panal_start/services/admin_auth_service.dart';
 import 'package:admin_panal_start/utility/snack_bar_helper.dart';
 import 'package:admin_panal_start/widgets/camera_picker_dialog.dart';
@@ -268,17 +267,17 @@ class DashBoardProvider extends ChangeNotifier {
       bool confirmDelete = await showDialog(
             context: Get.context!,
             builder: (context) => AlertDialog(
-              title: Text("Delete Product"),
+              title: const Text("Delete Product"),
               content: Text(
                   "Are you sure you want to delete '${product.name}'? This action cannot be undone."),
               actions: [
                 TextButton(
                   onPressed: () => Navigator.of(context).pop(false),
-                  child: Text("Cancel"),
+                  child: const Text("Cancel"),
                 ),
                 TextButton(
                   onPressed: () => Navigator.of(context).pop(true),
-                  child: Text("Delete", style: TextStyle(color: Colors.red)),
+                  child: const Text("Delete", style: TextStyle(color: Colors.red)),
                 ),
               ],
             ),
@@ -380,16 +379,12 @@ class DashBoardProvider extends ChangeNotifier {
     required List<Map<String, XFile?>>? imgXFiles,
     required Map<String, dynamic> formData,
   }) async {
-    int imageCount = 0;
-
     if (imgXFiles != null) {
       for (int i = 0; i < imgXFiles.length; i++) {
         String imageKey = 'image${i + 1}';
         XFile? imgXFile = imgXFiles[i][imageKey];
 
         if (imgXFile != null) {
-          imageCount++;
-
           if (kIsWeb) {
             String fileName = imgXFile.name;
             Uint8List byteImg = await imgXFile.readAsBytes();
@@ -483,7 +478,7 @@ class DashBoardProvider extends ChangeNotifier {
 
       if (selectedCategory != null) {
         // Wait for data to load before filtering
-        await Future.delayed(Duration(milliseconds: 100));
+        await Future.delayed(const Duration(milliseconds: 100));
         filterSubcategory(selectedCategory);
       }
 
@@ -493,7 +488,7 @@ class DashBoardProvider extends ChangeNotifier {
       );
 
       if (selectedSubCategory != null) {
-        await Future.delayed(Duration(milliseconds: 100));
+        await Future.delayed(const Duration(milliseconds: 100));
         filterBrand(selectedSubCategory);
       }
 
@@ -508,7 +503,7 @@ class DashBoardProvider extends ChangeNotifier {
       );
 
       if (selectedVariantType != null) {
-        await Future.delayed(Duration(milliseconds: 100));
+        await Future.delayed(const Duration(milliseconds: 100));
         filterVariant(selectedVariantType);
       }
 

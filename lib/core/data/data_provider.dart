@@ -352,8 +352,8 @@ class DataProvider extends ChangeNotifier {
       _filteredSubCategories = List.from(_allSubCategories);
     } else {
       final lowcase = keyword.toLowerCase();
-      _filteredSubCategories = _allSubCategories.where((SubCategory) {
-        return (SubCategory.name ?? '').toLowerCase().contains(lowcase);
+      _filteredSubCategories = _allSubCategories.where((subCategory) {
+        return (subCategory.name ?? '').toLowerCase().contains(lowcase);
       }).toList();
     }
     notifyListeners();
@@ -420,8 +420,8 @@ class DataProvider extends ChangeNotifier {
       _filteredBrands = List.from(_allBrands);
     } else {
       final lowcase = keyword.toLowerCase();
-      _filteredBrands = _allBrands.where((Brand) {
-        return (Brand.name ?? '').toLowerCase().contains(lowcase);
+      _filteredBrands = _allBrands.where((brand) {
+        return (brand.name ?? '').toLowerCase().contains(lowcase);
       }).toList();
     }
     notifyListeners();
@@ -489,8 +489,8 @@ class DataProvider extends ChangeNotifier {
       _filteredVariantTypes = List.from(_allVariantTypes);
     } else {
       final lowcase = keyword.toLowerCase();
-      _filteredVariantTypes = _allVariantTypes.where((VariantType) {
-        return (VariantType.name ?? '').toLowerCase().contains(lowcase);
+      _filteredVariantTypes = _allVariantTypes.where((variantType) {
+        return (variantType.name ?? '').toLowerCase().contains(lowcase);
       }).toList();
     }
     notifyListeners();
@@ -557,8 +557,8 @@ class DataProvider extends ChangeNotifier {
       _filteredVariants = List.from(_allVariants);
     } else {
       final lowcase = keyword.toLowerCase();
-      _filteredVariants = _allVariants.where((Variant) {
-        return (Variant.name ?? '').toLowerCase().contains(lowcase);
+      _filteredVariants = _allVariants.where((variant) {
+        return (variant.name ?? '').toLowerCase().contains(lowcase);
       }).toList();
     }
     notifyListeners();
@@ -664,7 +664,7 @@ class DataProvider extends ChangeNotifier {
       final lowcase = keyword.toLowerCase();
 
       _filteredProducts = _allProducts.where((product) {
-        final ProductNameContainsKeyword =
+        final productNameContainsKeyword =
             (product.name ?? '').toLowerCase().contains(lowcase);
         final categoryNameContainsKeyword =
             product.proCategoryId?.name?.toLowerCase().contains(lowcase) ??
@@ -675,7 +675,7 @@ class DataProvider extends ChangeNotifier {
         final brandNameContainsKeyword =
             product.proBrandId?.name?.toLowerCase().contains(lowcase) ?? false;
 
-        return ProductNameContainsKeyword ||
+        return productNameContainsKeyword ||
             categoryNameContainsKeyword ||
             subCategoryNameContainsKeyword ||
             brandNameContainsKeyword;

@@ -35,7 +35,7 @@ class VariantTypeSubmitForm extends StatelessWidget {
       return Column(
         children: [
           _buildNameField(context),
-          SizedBox(height: 8),
+          const SizedBox(height: 8),
           _buildTypeField(context),
         ],
       );
@@ -43,7 +43,7 @@ class VariantTypeSubmitForm extends StatelessWidget {
       return Row(
         children: [
           Expanded(child: _buildNameField(context)),
-          SizedBox(width: 8),
+          const SizedBox(width: 8),
           Expanded(child: _buildTypeField(context)),
         ],
       );
@@ -90,7 +90,7 @@ class VariantTypeSubmitForm extends StatelessWidget {
           onPressed: () {
             Navigator.of(context).pop();
           },
-          child: Text('Cancel'),
+          child: const Text('Cancel'),
         ),
         SizedBox(width: ResponsiveUtils.getPadding(context)),
         ElevatedButton(
@@ -107,7 +107,7 @@ class VariantTypeSubmitForm extends StatelessWidget {
               Navigator.of(context).pop();
             }
           },
-          child: Text('Submit'),
+          child: const Text('Submit'),
         ),
       ],
     );

@@ -3,10 +3,8 @@ import 'package:admin_panal_start/services/admin_auth_service.dart';
 import 'package:admin_panal_start/utility/snack_bar_helper.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:get/get_connect/http/src/response/response.dart';
 import '../../../models/order.dart';
 import '../../../services/http_services.dart';
-import 'package:flutter/cupertino.dart';
 import '../../../core/data/data_provider.dart';
 
 class OrderProvider extends ChangeNotifier {
@@ -186,17 +184,17 @@ class OrderProvider extends ChangeNotifier {
       bool confirmDelete = await showDialog(
             context: Get.context!,
             builder: (context) => AlertDialog(
-              title: Text("Delete Order"),
+              title: const Text("Delete Order"),
               content: Text(
                   "Are you sure you want to delete order #${_shortOrderId(order.sId)}? This action cannot be undone."),
               actions: [
                 TextButton(
                   onPressed: () => Navigator.of(context).pop(false),
-                  child: Text("Cancel"),
+                  child: const Text("Cancel"),
                 ),
                 TextButton(
                   onPressed: () => Navigator.of(context).pop(true),
-                  child: Text("Delete", style: TextStyle(color: Colors.red)),
+                  child: const Text("Delete", style: TextStyle(color: Colors.red)),
                 ),
               ],
             ),

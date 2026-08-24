@@ -8,6 +8,8 @@ import 'components/sub_category_header.dart';
 import 'components/sub_category_list_section.dart';
 
 class SubCategoryScreen extends StatefulWidget {
+  const SubCategoryScreen({super.key});
+
   @override
   State<SubCategoryScreen> createState() => _SubCategoryScreenState();
 }
@@ -32,8 +34,8 @@ class _SubCategoryScreenState extends State<SubCategoryScreen> {
         padding: EdgeInsets.all(ResponsiveUtils.getPadding(context)),
         child: Column(
           children: [
-            SubCategoryHeader(),
-            Gap(defaultPadding),
+            const SubCategoryHeader(),
+            const Gap(defaultPadding),
             Row(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
@@ -64,8 +66,8 @@ class _SubCategoryScreenState extends State<SubCategoryScreen> {
                             onPressed: () {
                               showAddSubCategoryForm(context, null);
                             },
-                            icon: Icon(Icons.add),
-                            label: Text("Add New"),
+                            icon: const Icon(Icons.add),
+                            label: const Text("Add New"),
                           ),
                           Gap(ResponsiveUtils.isMobile(context) ? 8 : 20),
                           IconButton(
@@ -73,12 +75,12 @@ class _SubCategoryScreenState extends State<SubCategoryScreen> {
                               context.dataProvider
                                   .getAllSubCategory(showSnack: true);
                             },
-                            icon: Icon(Icons.refresh),
+                            icon: const Icon(Icons.refresh),
                           ),
                         ],
                       ),
-                      Gap(defaultPadding),
-                      SubCategoryListSection(),
+                      const Gap(defaultPadding),
+                      const SubCategoryListSection(),
                     ],
                   ),
                 ),

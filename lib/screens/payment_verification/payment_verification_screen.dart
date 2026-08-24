@@ -9,6 +9,8 @@ import '../../utility/constants.dart';
 import '../../widgets/responsive_header.dart';
 
 class PaymentVerificationScreen extends StatelessWidget {
+  const PaymentVerificationScreen({super.key});
+
   @override
   Widget build(BuildContext context) {
     return SafeArea(
@@ -18,7 +20,7 @@ class PaymentVerificationScreen extends StatelessWidget {
         child: Column(
           children: [
             _buildHeader(),
-            Gap(defaultPadding),
+            const Gap(defaultPadding),
             _buildPendingVerificationSection(context),
           ],
         ),
@@ -39,7 +41,7 @@ class PaymentVerificationScreen extends StatelessWidget {
   Widget _buildPendingVerificationSection(BuildContext context) {
     return Container(
       padding: EdgeInsets.all(ResponsiveUtils.getPadding(context)),
-      decoration: BoxDecoration(
+      decoration: const BoxDecoration(
         color: secondaryColor,
         borderRadius: BorderRadius.all(Radius.circular(10)),
       ),
@@ -49,7 +51,7 @@ class PaymentVerificationScreen extends StatelessWidget {
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
-              Text(
+              const Text(
                 "Pending Payment Verification",
                 style: TextStyle(
                   fontSize: 18,
@@ -61,11 +63,11 @@ class PaymentVerificationScreen extends StatelessWidget {
                 onPressed: () {
                   context.dataProvider.getAllOrders(showSnack: true);
                 },
-                icon: Icon(Icons.refresh, color: Colors.white),
+                icon: const Icon(Icons.refresh, color: Colors.white),
               ),
             ],
           ),
-          Gap(defaultPadding),
+          const Gap(defaultPadding),
           Consumer<DataProvider>(
             builder: (context, dataProvider, child) {
               final pendingOrders = dataProvider.orders
@@ -76,7 +78,7 @@ class PaymentVerificationScreen extends StatelessWidget {
                   .toList();
 
               if (pendingOrders.isEmpty) {
-                return Center(
+                return const Center(
                   child: Text(
                     "No pending payment verifications",
                     style: TextStyle(color: Colors.white70),
@@ -86,7 +88,7 @@ class PaymentVerificationScreen extends StatelessWidget {
 
               return ListView.builder(
                 shrinkWrap: true,
-                physics: NeverScrollableScrollPhysics(),
+                physics: const NeverScrollableScrollPhysics(),
                 itemCount: pendingOrders.length,
                 itemBuilder: (context, index) {
                   return _buildVerificationCard(context, pendingOrders[index]);
@@ -101,10 +103,10 @@ class PaymentVerificationScreen extends StatelessWidget {
 
   Widget _buildVerificationCard(BuildContext context, Order order) {
     return Card(
-      margin: EdgeInsets.only(bottom: defaultPadding),
+      margin: const EdgeInsets.only(bottom: defaultPadding),
       color: Colors.grey[900],
       child: Padding(
-        padding: EdgeInsets.all(defaultPadding),
+        padding: const EdgeInsets.all(defaultPadding),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
@@ -117,22 +119,22 @@ class PaymentVerificationScreen extends StatelessWidget {
                     children: [
                       Text(
                         "Order #${_shortOrderId(order.sId)}",
-                        style: TextStyle(
+                        style: const TextStyle(
                           fontWeight: FontWeight.bold,
                           color: Colors.white,
                         ),
                       ),
                       Text(
                         "Customer: ${order.userID?.name ?? 'N/A'}",
-                        style: TextStyle(color: Colors.white70),
+                        style: const TextStyle(color: Colors.white70),
                       ),
                       Text(
                         "Amount: ETB ${order.totalPrice?.toStringAsFixed(2) ?? '0.00'}",
-                        style: TextStyle(color: Colors.white70),
+                        style: const TextStyle(color: Colors.white70),
                       ),
                       Text(
                         "Payment Method: ${order.paymentMethod?.toUpperCase() ?? 'N/A'}",
-                        style: TextStyle(color: Colors.white70),
+                        style: const TextStyle(color: Colors.white70),
                       ),
                     ],
                   ),
@@ -146,7 +148,7 @@ class PaymentVerificationScreen extends StatelessWidget {
                       Colors.blue,
                       () => _viewPaymentProof(context, order),
                     ),
-                    Gap(8),
+                    const Gap(8),
                     _buildActionButton(
                       context,
                       "Verify",
@@ -154,7 +156,7 @@ class PaymentVerificationScreen extends StatelessWidget {
                       Colors.green,
                       () => _verifyPayment(context, order, true),
                     ),
-                    Gap(8),
+                    const Gap(8),
                     _buildActionButton(
                       context,
                       "Reject",
@@ -167,10 +169,10 @@ class PaymentVerificationScreen extends StatelessWidget {
               ],
             ),
             if (order.paymentProof?.uploadedAt != null) ...[
-              Gap(8),
+              const Gap(8),
               Text(
                 "Uploaded: ${_formatDate(order.paymentProof!.uploadedAt)}",
-                style: TextStyle(color: Colors.white60, fontSize: 12),
+                style: const TextStyle(color: Colors.white60, fontSize: 12),
               ),
             ],
           ],
@@ -186,11 +188,11 @@ class PaymentVerificationScreen extends StatelessWidget {
       child: ElevatedButton.icon(
         onPressed: onPressed,
         icon: Icon(icon, size: 16),
-        label: Text(text, style: TextStyle(fontSize: 12)),
+        label: Text(text, style: const TextStyle(fontSize: 12)),
         style: ElevatedButton.styleFrom(
           backgroundColor: color,
           foregroundColor: Colors.white,
-          padding: EdgeInsets.symmetric(horizontal: 8, vertical: 4),
+          padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 4),
         ),
       ),
     );
@@ -207,11 +209,11 @@ class PaymentVerificationScreen extends StatelessWidget {
               color: secondaryColor,
               borderRadius: BorderRadius.circular(10),
             ),
-            padding: EdgeInsets.all(defaultPadding),
+            padding: const EdgeInsets.all(defaultPadding),
             child: Column(
               mainAxisSize: MainAxisSize.min,
               children: [
-                Text(
+                const Text(
                   "Payment Proof",
                   style: TextStyle(
                     color: Colors.white,
@@ -219,7 +221,7 @@ class PaymentVerificationScreen extends StatelessWidget {
                     fontWeight: FontWeight.bold,
                   ),
                 ),
-                Gap(defaultPadding),
+                const Gap(defaultPadding),
                 Image.network(
                   order.paymentProof!.imageUrl!,
                   width: 300,
@@ -230,7 +232,7 @@ class PaymentVerificationScreen extends StatelessWidget {
                       width: 300,
                       height: 300,
                       color: Colors.grey[800],
-                      child: Center(
+                      child: const Center(
                         child: Text(
                           "Failed to load image",
                           style: TextStyle(color: Colors.white),
@@ -239,10 +241,10 @@ class PaymentVerificationScreen extends StatelessWidget {
                     );
                   },
                 ),
-                Gap(defaultPadding),
+                const Gap(defaultPadding),
                 ElevatedButton(
                   onPressed: () => Navigator.of(context).pop(),
-                  child: Text("Close"),
+                  child: const Text("Close"),
                 ),
               ],
             ),
@@ -259,18 +261,18 @@ class PaymentVerificationScreen extends StatelessWidget {
         backgroundColor: secondaryColor,
         title: Text(
           verified ? "Verify Payment" : "Reject Payment",
-          style: TextStyle(color: Colors.white),
+          style: const TextStyle(color: Colors.white),
         ),
         content: Text(
           verified
               ? "Are you sure you want to verify this payment?"
               : "Are you sure you want to reject this payment?",
-          style: TextStyle(color: Colors.white70),
+          style: const TextStyle(color: Colors.white70),
         ),
         actions: [
           TextButton(
             onPressed: () => Navigator.of(context).pop(),
-            child: Text("Cancel", style: TextStyle(color: Colors.white70)),
+            child: const Text("Cancel", style: TextStyle(color: Colors.white70)),
           ),
           ElevatedButton(
             onPressed: () {

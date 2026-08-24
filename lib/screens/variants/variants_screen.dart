@@ -8,6 +8,8 @@ import 'components/variant_header.dart';
 import 'components/variants_list_section.dart';
 
 class VariantsScreen extends StatefulWidget {
+  const VariantsScreen({super.key});
+
   @override
   State<VariantsScreen> createState() => _VariantsScreenState();
 }
@@ -32,8 +34,8 @@ class _VariantsScreenState extends State<VariantsScreen> {
         padding: EdgeInsets.all(ResponsiveUtils.getPadding(context)),
         child: Column(
           children: [
-            VariantHeader(),
-            Gap(defaultPadding),
+            const VariantHeader(),
+            const Gap(defaultPadding),
             Row(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
@@ -64,8 +66,8 @@ class _VariantsScreenState extends State<VariantsScreen> {
                             onPressed: () {
                               showAddVariantForm(context, null);
                             },
-                            icon: Icon(Icons.add),
-                            label: Text("Add New"),
+                            icon: const Icon(Icons.add),
+                            label: const Text("Add New"),
                           ),
                           Gap(ResponsiveUtils.isMobile(context) ? 8 : 20),
                           IconButton(
@@ -73,12 +75,12 @@ class _VariantsScreenState extends State<VariantsScreen> {
                               context.dataProvider
                                   .getAllVariant(showSnack: true);
                             },
-                            icon: Icon(Icons.refresh),
+                            icon: const Icon(Icons.refresh),
                           ),
                         ],
                       ),
-                      Gap(defaultPadding),
-                      VariantListSection(),
+                      const Gap(defaultPadding),
+                      const VariantListSection(),
                     ],
                   ),
                 ),

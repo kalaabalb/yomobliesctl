@@ -8,6 +8,8 @@ import 'components/category_header.dart';
 import 'components/category_list_section.dart';
 
 class CategoryScreen extends StatefulWidget {
+  const CategoryScreen({super.key});
+
   @override
   State<CategoryScreen> createState() => _CategoryScreenState();
 }
@@ -32,8 +34,8 @@ class _CategoryScreenState extends State<CategoryScreen> {
         padding: EdgeInsets.all(ResponsiveUtils.getPadding(context)),
         child: Column(
           children: [
-            CategoryHeader(),
-            SizedBox(height: defaultPadding),
+            const CategoryHeader(),
+            const SizedBox(height: defaultPadding),
             Row(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
@@ -64,8 +66,8 @@ class _CategoryScreenState extends State<CategoryScreen> {
                             onPressed: () {
                               showAddCategoryForm(context, null);
                             },
-                            icon: Icon(Icons.add),
-                            label: Text("Add New"),
+                            icon: const Icon(Icons.add),
+                            label: const Text("Add New"),
                           ),
                           Gap(ResponsiveUtils.isMobile(context) ? 8 : 20),
                           IconButton(
@@ -73,12 +75,12 @@ class _CategoryScreenState extends State<CategoryScreen> {
                               context.dataProvider
                                   .getAllCategory(showSnack: true);
                             },
-                            icon: Icon(Icons.refresh),
+                            icon: const Icon(Icons.refresh),
                           ),
                         ],
                       ),
-                      Gap(defaultPadding),
-                      CategoryListSection(),
+                      const Gap(defaultPadding),
+                      const CategoryListSection(),
                     ],
                   ),
                 ),

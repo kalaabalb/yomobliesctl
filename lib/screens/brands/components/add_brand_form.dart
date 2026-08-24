@@ -40,7 +40,7 @@ class BrandSubmitForm extends StatelessWidget {
       return Column(
         children: [
           _buildSubCategoryDropdown(context),
-          Gap(8),
+          const Gap(8),
           _buildNameField(context),
         ],
       );
@@ -48,7 +48,7 @@ class BrandSubmitForm extends StatelessWidget {
       return Row(
         children: [
           Expanded(child: _buildSubCategoryDropdown(context)),
-          Gap(8),
+          const Gap(8),
           Expanded(child: _buildNameField(context)),
         ],
       );
@@ -105,7 +105,7 @@ class BrandSubmitForm extends StatelessWidget {
           onPressed: () {
             Navigator.of(context).pop();
           },
-          child: Text('Cancel'),
+          child: const Text('Cancel'),
         ),
         Gap(ResponsiveUtils.getPadding(context)),
         ElevatedButton(
@@ -121,7 +121,7 @@ class BrandSubmitForm extends StatelessWidget {
               Navigator.of(context).pop();
             }
           },
-          child: Text('Submit'),
+          child: const Text('Submit'),
         ),
       ],
     );

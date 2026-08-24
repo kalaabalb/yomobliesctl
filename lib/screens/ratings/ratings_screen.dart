@@ -13,6 +13,8 @@ import '../../utility/constants.dart';
 import '../../widgets/responsive_header.dart';
 
 class RatingsScreen extends StatefulWidget {
+  const RatingsScreen({super.key});
+
   @override
   State<RatingsScreen> createState() => _RatingsScreenState();
 }
@@ -37,8 +39,8 @@ class _RatingsScreenState extends State<RatingsScreen> {
         padding: EdgeInsets.all(ResponsiveUtils.getPadding(context)),
         child: Column(
           children: [
-            RatingsHeader(),
-            Gap(defaultPadding),
+            const RatingsHeader(),
+            const Gap(defaultPadding),
             Row(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
@@ -47,8 +49,8 @@ class _RatingsScreenState extends State<RatingsScreen> {
                   child: Column(
                     children: [
                       _buildRatingsHeader(context),
-                      Gap(defaultPadding),
-                      RatingsListSection(),
+                      const Gap(defaultPadding),
+                      const RatingsListSection(),
                     ],
                   ),
                 ),
@@ -74,7 +76,7 @@ class _RatingsScreenState extends State<RatingsScreen> {
           onPressed: () {
             context.dataProvider.getAllProduct(showSnack: true);
           },
-          icon: Icon(Icons.refresh),
+          icon: const Icon(Icons.refresh),
         ),
       ],
     );
@@ -103,20 +105,20 @@ class RatingsListSection extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       padding: EdgeInsets.all(ResponsiveUtils.getPadding(context)),
-      decoration: BoxDecoration(
+      decoration: const BoxDecoration(
         color: secondaryColor,
-        borderRadius: const BorderRadius.all(Radius.circular(10)),
+        borderRadius: BorderRadius.all(Radius.circular(10)),
       ),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Text("Product Ratings",
               style: Theme.of(context).textTheme.titleMedium),
-          SizedBox(height: defaultPadding),
+          const SizedBox(height: defaultPadding),
           Consumer<DataProvider>(
             builder: (context, dataProvider, child) {
               if (dataProvider.products.isEmpty) {
-                return Center(
+                return const Center(
                   child: Text(
                     "No products available",
                     style: TextStyle(color: Colors.white70),
@@ -125,7 +127,7 @@ class RatingsListSection extends StatelessWidget {
               }
 
               return ResponsiveDataTable(
-                columns: [
+                columns: const [
                   DataColumn(label: Text("Product")),
                   DataColumn(label: Text("Actions")),
                 ],
@@ -180,7 +182,7 @@ DataRow ratingDataRow(Product productInfo, int index, {Function? viewReviews}) {
           onPressed: () {
             if (viewReviews != null) viewReviews();
           },
-          icon: Icon(Icons.remove_red_eye, color: Colors.blue, size: 20),
+          icon: const Icon(Icons.remove_red_eye, color: Colors.blue, size: 20),
           tooltip: 'View Reviews',
         ),
       ),
@@ -210,7 +212,7 @@ void _viewProductReviews(BuildContext context, Product product) {
                       Expanded(
                         child: Text(
                           "Reviews for ${product.name}",
-                          style: TextStyle(
+                          style: const TextStyle(
                             fontSize: 18,
                             fontWeight: FontWeight.bold,
                             color: Colors.white,
@@ -219,22 +221,22 @@ void _viewProductReviews(BuildContext context, Product product) {
                       ),
                       IconButton(
                         onPressed: () => Navigator.of(context).pop(),
-                        icon: Icon(Icons.close, color: Colors.white),
+                        icon: const Icon(Icons.close, color: Colors.white),
                       ),
                     ],
                   ),
-                  Gap(defaultPadding),
+                  const Gap(defaultPadding),
                   Expanded(
                     child: FutureBuilder<List<Rating>>(
                       future: ratingProvider.getProductRatings(product.sId!),
                       builder: (context, snapshot) {
                         if (snapshot.connectionState ==
                             ConnectionState.waiting) {
-                          return Center(child: CircularProgressIndicator());
+                          return const Center(child: CircularProgressIndicator());
                         }
 
                         if (snapshot.hasError) {
-                          return Center(
+                          return const Center(
                             child: Text(
                               "Error loading reviews",
                               style: TextStyle(color: Colors.red),
@@ -245,7 +247,7 @@ void _viewProductReviews(BuildContext context, Product product) {
                         final ratings = snapshot.data ?? [];
 
                         if (ratings.isEmpty) {
-                          return Column(
+                          return const Column(
                             mainAxisAlignment: MainAxisAlignment.center,
                             children: [
                               Icon(Icons.reviews, size: 64, color: Colors.grey),
@@ -264,7 +266,7 @@ void _viewProductReviews(BuildContext context, Product product) {
                           itemBuilder: (context, index) {
                             final rating = ratings[index];
                             return Card(
-                              margin: EdgeInsets.symmetric(vertical: 8),
+                              margin: const EdgeInsets.symmetric(vertical: 8),
                               color: Colors.grey[800],
                               child: ListTile(
                                 leading: CircleAvatar(
@@ -272,20 +274,20 @@ void _viewProductReviews(BuildContext context, Product product) {
                                 ),
                                 title: Text(
                                   rating.userName ?? 'Unknown User',
-                                  style: TextStyle(color: Colors.white),
+                                  style: const TextStyle(color: Colors.white),
                                 ),
                                 subtitle: Text(
                                   rating.review ?? 'No review text',
-                                  style: TextStyle(color: Colors.white70),
+                                  style: const TextStyle(color: Colors.white70),
                                 ),
                                 trailing: Row(
                                   mainAxisSize: MainAxisSize.min,
                                   children: [
                                     Text(
                                       '${rating.rating ?? 0}/5',
-                                      style: TextStyle(color: Colors.amber),
+                                      style: const TextStyle(color: Colors.amber),
                                     ),
-                                    Icon(Icons.star, color: Colors.amber),
+                                    const Icon(Icons.star, color: Colors.amber),
                                   ],
                                 ),
                               ),

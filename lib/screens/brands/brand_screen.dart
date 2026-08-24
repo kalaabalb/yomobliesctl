@@ -8,6 +8,8 @@ import 'components/brand_header.dart';
 import 'components/brand_list_section.dart';
 
 class BrandScreen extends StatefulWidget {
+  const BrandScreen({super.key});
+
   @override
   State<BrandScreen> createState() => _BrandScreenState();
 }
@@ -32,8 +34,8 @@ class _BrandScreenState extends State<BrandScreen> {
         padding: EdgeInsets.all(ResponsiveUtils.getPadding(context)),
         child: Column(
           children: [
-            BrandHeader(),
-            Gap(defaultPadding),
+            const BrandHeader(),
+            const Gap(defaultPadding),
             Row(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
@@ -64,8 +66,8 @@ class _BrandScreenState extends State<BrandScreen> {
                             onPressed: () {
                               showBrandForm(context, null);
                             },
-                            icon: Icon(Icons.add),
-                            label: Text("Add New"),
+                            icon: const Icon(Icons.add),
+                            label: const Text("Add New"),
                           ),
                           Gap(ResponsiveUtils.isMobile(context) ? 8 : 20),
                           IconButton(
@@ -73,12 +75,12 @@ class _BrandScreenState extends State<BrandScreen> {
                               context.dataProvider
                                   .getAllBrands(showSnack: true);
                             },
-                            icon: Icon(Icons.refresh),
+                            icon: const Icon(Icons.refresh),
                           ),
                         ],
                       ),
-                      Gap(defaultPadding),
-                      BrandListSection(),
+                      const Gap(defaultPadding),
+                      const BrandListSection(),
                     ],
                   ),
                 ),

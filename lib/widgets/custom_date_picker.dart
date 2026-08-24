@@ -36,7 +36,7 @@ class _CustomDatePickerState extends State<CustomDatePicker> {
       builder: (BuildContext context, Widget? child) {
         return Theme(
           data: ThemeData.light().copyWith(
-            colorScheme: ColorScheme.light(
+            colorScheme: const ColorScheme.light(
               primary: primaryColor,
               onPrimary: Colors.white,
               onSurface: Colors.black,
@@ -82,7 +82,7 @@ class _CustomDatePickerState extends State<CustomDatePicker> {
           ),
           focusedBorder: OutlineInputBorder(
             borderRadius: BorderRadius.circular(12.0),
-            borderSide: BorderSide(color: primaryColor, width: 2),
+            borderSide: const BorderSide(color: primaryColor, width: 2),
           ),
           filled: true,
           fillColor: Colors.grey[50],
@@ -91,7 +91,7 @@ class _CustomDatePickerState extends State<CustomDatePicker> {
             vertical: ResponsiveUtils.isMobile(context) ? 12 : 16,
           ),
           suffixIcon: IconButton(
-            icon: Icon(Icons.calendar_today, color: primaryColor),
+            icon: const Icon(Icons.calendar_today, color: primaryColor),
             onPressed: () => _selectDate(context),
           ),
         ),

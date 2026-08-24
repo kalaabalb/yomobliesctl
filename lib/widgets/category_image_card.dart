@@ -1,4 +1,3 @@
-import 'dart:typed_data';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:cached_network_image/cached_network_image.dart';
@@ -49,7 +48,7 @@ class CategoryImageCard extends StatelessWidget {
 
                 // Camera icon positioned properly
                 if (!hasImage)
-                  Positioned(
+                  const Positioned(
                     top: 30,
                     left: 0,
                     right: 0,
@@ -77,10 +76,10 @@ class CategoryImageCard extends StatelessWidget {
         ),
 
         // Label text
-        SizedBox(height: 8),
+        const SizedBox(height: 8),
         Text(
           labelText,
-          style: TextStyle(
+          style: const TextStyle(
             color: Colors.white,
             fontSize: 14,
             fontWeight: FontWeight.w500,
@@ -89,17 +88,17 @@ class CategoryImageCard extends StatelessWidget {
 
         // Remove button if image exists
         if (hasImage) ...[
-          SizedBox(height: 8),
+          const SizedBox(height: 8),
           ElevatedButton.icon(
             onPressed: onRemoveImage,
             style: ElevatedButton.styleFrom(
               backgroundColor: Colors.red.shade800,
               foregroundColor: Colors.white,
-              padding: EdgeInsets.symmetric(horizontal: 12, vertical: 6),
-              minimumSize: Size(0, 0),
+              padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 6),
+              minimumSize: const Size(0, 0),
             ),
-            icon: Icon(Icons.delete, size: 16),
-            label: Text('Remove'),
+            icon: const Icon(Icons.delete, size: 16),
+            label: const Text('Remove'),
           ),
         ],
       ],
@@ -127,7 +126,7 @@ class CategoryImageCard extends StatelessWidget {
           fit: BoxFit.cover,
           width: double.infinity,
           height: double.infinity,
-          placeholder: (context, url) => Center(
+          placeholder: (context, url) => const Center(
             child: CircularProgressIndicator(
               strokeWidth: 2,
               valueColor: AlwaysStoppedAnimation<Color>(primaryColor),
@@ -147,7 +146,7 @@ class CategoryImageCard extends StatelessWidget {
         color: Colors.grey[800]!.withOpacity(0.5),
         borderRadius: BorderRadius.circular(10),
       ),
-      child: SizedBox(), // Empty container, camera icon is positioned above
+      child: const SizedBox(), // Empty container, camera icon is positioned above
     );
   }
 }

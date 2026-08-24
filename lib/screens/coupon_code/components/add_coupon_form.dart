@@ -49,7 +49,7 @@ class CouponSubmitForm extends StatelessWidget {
       return Column(
         children: [
           _buildCouponCodeField(context),
-          Gap(8),
+          const Gap(8),
           _buildDiscountTypeDropdown(context),
         ],
       );
@@ -57,7 +57,7 @@ class CouponSubmitForm extends StatelessWidget {
       return Row(
         children: [
           Expanded(child: _buildCouponCodeField(context)),
-          Gap(8),
+          const Gap(8),
           Expanded(child: _buildDiscountTypeDropdown(context)),
         ],
       );
@@ -82,7 +82,7 @@ class CouponSubmitForm extends StatelessWidget {
     return CustomDropdown(
       key: GlobalKey(),
       hintText: 'Discount Type',
-      items: ['fixed', 'percentage'],
+      items: const ['fixed', 'percentage'],
       initialValue: context.couponCodeProvider.selectedDiscountType,
       onChanged: (newValue) {
         context.couponCodeProvider.selectedDiscountType = newValue ?? 'fixed';
@@ -102,7 +102,7 @@ class CouponSubmitForm extends StatelessWidget {
       return Column(
         children: [
           _buildDiscountAmountField(context),
-          Gap(8),
+          const Gap(8),
           _buildMinimumAmountField(context),
         ],
       );
@@ -110,7 +110,7 @@ class CouponSubmitForm extends StatelessWidget {
       return Row(
         children: [
           Expanded(child: _buildDiscountAmountField(context)),
-          Gap(8),
+          const Gap(8),
           Expanded(child: _buildMinimumAmountField(context)),
         ],
       );
@@ -152,7 +152,7 @@ class CouponSubmitForm extends StatelessWidget {
       return Column(
         children: [
           _buildDatePicker(context),
-          Gap(8),
+          const Gap(8),
           _buildStatusDropdown(context),
         ],
       );
@@ -160,7 +160,7 @@ class CouponSubmitForm extends StatelessWidget {
       return Row(
         children: [
           Expanded(child: _buildDatePicker(context)),
-          Gap(8),
+          const Gap(8),
           Expanded(child: _buildStatusDropdown(context)),
         ],
       );
@@ -185,7 +185,7 @@ class CouponSubmitForm extends StatelessWidget {
       key: GlobalKey(),
       hintText: 'Status',
       initialValue: context.couponCodeProvider.selectedCouponStatus,
-      items: ['active', 'inactive'],
+      items: const ['active', 'inactive'],
       displayItem: (val) => val,
       onChanged: (newValue) {
         context.couponCodeProvider.selectedCouponStatus = newValue ?? 'active';
@@ -204,9 +204,9 @@ class CouponSubmitForm extends StatelessWidget {
       return Column(
         children: [
           _buildCategoryDropdown(context),
-          Gap(8),
+          const Gap(8),
           _buildSubCategoryDropdown(context),
-          Gap(8),
+          const Gap(8),
           _buildProductDropdown(context),
         ],
       );
@@ -214,9 +214,9 @@ class CouponSubmitForm extends StatelessWidget {
       return Row(
         children: [
           Expanded(child: _buildCategoryDropdown(context)),
-          Gap(8),
+          const Gap(8),
           Expanded(child: _buildSubCategoryDropdown(context)),
-          Gap(8),
+          const Gap(8),
           Expanded(child: _buildProductDropdown(context)),
         ],
       );
@@ -299,7 +299,7 @@ class CouponSubmitForm extends StatelessWidget {
           onPressed: () {
             Navigator.of(context).pop();
           },
-          child: Text('Cancel'),
+          child: const Text('Cancel'),
         ),
         SizedBox(width: ResponsiveUtils.getPadding(context)),
         ElevatedButton(
@@ -315,7 +315,7 @@ class CouponSubmitForm extends StatelessWidget {
               Navigator.of(context).pop();
             }
           },
-          child: Text('Submit'),
+          child: const Text('Submit'),
         ),
       ],
     );

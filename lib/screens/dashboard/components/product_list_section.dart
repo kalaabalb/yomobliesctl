@@ -4,7 +4,6 @@ import 'package:admin_panal_start/utility/responsive_utils.dart';
 import 'package:admin_panal_start/widgets/responsive_data_table.dart';
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:get/get.dart';
-import 'package:get/get_core/src/get_main.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import '../../../core/data/data_provider.dart';
@@ -21,12 +20,12 @@ class ProductListSection extends StatelessWidget {
       padding: EdgeInsets.all(ResponsiveUtils.getPadding(context)),
       decoration: BoxDecoration(
         color: secondaryColor,
-        borderRadius: BorderRadius.all(Radius.circular(10)),
+        borderRadius: const BorderRadius.all(Radius.circular(10)),
         boxShadow: [
           BoxShadow(
             color: Colors.black.withOpacity(0.2),
             blurRadius: 10,
-            offset: Offset(0, 4),
+            offset: const Offset(0, 4),
           ),
         ],
       ),
@@ -96,7 +95,7 @@ class ProductListSection extends StatelessWidget {
 
   Widget _buildEmptyState(BuildContext context) {
     return Container(
-      padding: EdgeInsets.all(40),
+      padding: const EdgeInsets.all(40),
       child: Column(
         children: [
           const Icon(
@@ -107,7 +106,7 @@ class ProductListSection extends StatelessWidget {
           const SizedBox(height: 16),
           const Text(
             "No Products Found",
-            style: const TextStyle(
+            style: TextStyle(
               fontSize: 18,
               color: Colors.white70,
               fontWeight: FontWeight.w500,
@@ -116,7 +115,7 @@ class ProductListSection extends StatelessWidget {
           const SizedBox(height: 8),
           const Text(
             "Add your first product to get started",
-            style: const TextStyle(
+            style: TextStyle(
               color: Colors.white54,
             ),
             textAlign: TextAlign.center,
@@ -144,7 +143,7 @@ class ProductListSection extends StatelessWidget {
       builder: (BuildContext context) {
         return AlertDialog(
           title: const Text("Delete Product",
-              style: const TextStyle(color: Colors.white)),
+              style: TextStyle(color: Colors.white)),
           backgroundColor: secondaryColor,
           content: Text(
             "Are you sure you want to delete '${product.name}'? This action cannot be undone.",
@@ -154,7 +153,7 @@ class ProductListSection extends StatelessWidget {
             TextButton(
               onPressed: () => Navigator.of(context).pop(),
               child: const Text("Cancel",
-                  style: const TextStyle(color: Colors.blue)),
+                  style: TextStyle(color: Colors.blue)),
             ),
             TextButton(
               onPressed: () {
@@ -162,7 +161,7 @@ class ProductListSection extends StatelessWidget {
                 context.dashBoardProvider.deleteProduct(product);
               },
               child: const Text("Delete",
-                  style: const TextStyle(color: Colors.red)),
+                  style: TextStyle(color: Colors.red)),
             ),
           ],
         );
@@ -269,7 +268,7 @@ DataRow productDataRow(BuildContext context, Product productInfo, int index,
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Container(
-                padding: EdgeInsets.symmetric(horizontal: 8, vertical: 4),
+                padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 4),
                 decoration: BoxDecoration(
                   color: _getStockStatusColor(productInfo),
                   borderRadius: BorderRadius.circular(12),

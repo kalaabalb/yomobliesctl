@@ -8,6 +8,8 @@ import '../../utility/constants.dart';
 import 'components/add_coupon_form.dart';
 
 class CouponCodeScreen extends StatefulWidget {
+  const CouponCodeScreen({super.key});
+
   @override
   State<CouponCodeScreen> createState() => _CouponCodeScreenState();
 }
@@ -32,8 +34,8 @@ class _CouponCodeScreenState extends State<CouponCodeScreen> {
         padding: EdgeInsets.all(ResponsiveUtils.getPadding(context)),
         child: Column(
           children: [
-            CouponCodeHeader(),
-            Gap(defaultPadding),
+            const CouponCodeHeader(),
+            const Gap(defaultPadding),
             Row(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
@@ -64,8 +66,8 @@ class _CouponCodeScreenState extends State<CouponCodeScreen> {
                             onPressed: () {
                               showAddCouponForm(context, null);
                             },
-                            icon: Icon(Icons.add),
-                            label: Text("Add New"),
+                            icon: const Icon(Icons.add),
+                            label: const Text("Add New"),
                           ),
                           Gap(ResponsiveUtils.isMobile(context) ? 8 : 20),
                           IconButton(
@@ -73,12 +75,12 @@ class _CouponCodeScreenState extends State<CouponCodeScreen> {
                               context.dataProvider
                                   .getAllCoupons(showSnack: true);
                             },
-                            icon: Icon(Icons.refresh),
+                            icon: const Icon(Icons.refresh),
                           ),
                         ],
                       ),
-                      Gap(defaultPadding),
-                      CouponListSection(),
+                      const Gap(defaultPadding),
+                      const CouponListSection(),
                     ],
                   ),
                 ),

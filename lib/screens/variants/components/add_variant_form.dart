@@ -9,7 +9,6 @@ import 'package:provider/provider.dart';
 import '../../../utility/constants.dart';
 import '../../../widgets/custom_dropdown.dart';
 import '../../../widgets/custom_text_field.dart';
-import '../../../utility/extensions.dart';
 
 class VariantSubmitForm extends StatelessWidget {
   final Variant? variant;
@@ -40,7 +39,7 @@ class VariantSubmitForm extends StatelessWidget {
       return Column(
         children: [
           _buildVariantTypeDropdown(context),
-          SizedBox(height: 8),
+          const SizedBox(height: 8),
           _buildNameField(context),
         ],
       );
@@ -48,7 +47,7 @@ class VariantSubmitForm extends StatelessWidget {
       return Row(
         children: [
           Expanded(child: _buildVariantTypeDropdown(context)),
-          SizedBox(width: 8),
+          const SizedBox(width: 8),
           Expanded(child: _buildNameField(context)),
         ],
       );
@@ -105,7 +104,7 @@ class VariantSubmitForm extends StatelessWidget {
           onPressed: () {
             Navigator.of(context).pop();
           },
-          child: Text('Cancel'),
+          child: const Text('Cancel'),
         ),
         SizedBox(width: ResponsiveUtils.getPadding(context)),
         ElevatedButton(
@@ -121,7 +120,7 @@ class VariantSubmitForm extends StatelessWidget {
               Navigator.of(context).pop();
             }
           },
-          child: Text('Submit'),
+          child: const Text('Submit'),
         ),
       ],
     );

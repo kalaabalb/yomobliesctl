@@ -29,7 +29,7 @@ class SendNotificationForm extends StatelessWidget {
                 return null;
               },
             ),
-            Gap(8),
+            const Gap(8),
             CustomTextField(
               controller: context.notificationProvider.descriptionCtrl,
               labelText: 'Enter Notification Description ....',
@@ -42,7 +42,7 @@ class SendNotificationForm extends StatelessWidget {
                 return null;
               },
             ),
-            Gap(8),
+            const Gap(8),
             CustomTextField(
               controller: context.notificationProvider.imageUrlCtrl,
               labelText: 'Enter Notification Image Url ....',
@@ -60,7 +60,7 @@ class SendNotificationForm extends StatelessWidget {
                   onPressed: () {
                     Navigator.of(context).pop();
                   },
-                  child: Text('Cancel'),
+                  child: const Text('Cancel'),
                 ),
                 SizedBox(width: ResponsiveUtils.getPadding(context)),
                 ElevatedButton(
@@ -79,7 +79,7 @@ class SendNotificationForm extends StatelessWidget {
                       Navigator.of(context).pop();
                     }
                   },
-                  child: Text('Send'),
+                  child: const Text('Send'),
                 ),
               ],
             ),
@@ -94,7 +94,7 @@ void sendNotificationFormForm(BuildContext context) {
   showDialog(
     context: context,
     builder: (BuildContext context) {
-      return CompactFormDialog(
+      return const CompactFormDialog(
         title: 'Send Notification',
         child: SendNotificationForm(),
       );

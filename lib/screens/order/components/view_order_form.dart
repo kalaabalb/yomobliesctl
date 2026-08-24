@@ -30,7 +30,7 @@ class OrderSubmitForm extends StatelessWidget {
               _buildBasicInfo(context),
               _buildItemsSection(context),
               _buildAddressSection(context),
-              Gap(10),
+              const Gap(10),
               _buildPaymentDetailsSection(context),
               _buildStatusSection(context),
               _buildTrackingSection(context),
@@ -60,13 +60,13 @@ class OrderSubmitForm extends StatelessWidget {
         children: [
           Text(
             label,
-            style: TextStyle(fontWeight: FontWeight.bold, fontSize: 14),
+            style: const TextStyle(fontWeight: FontWeight.bold, fontSize: 14),
           ),
-          SizedBox(width: 8),
+          const SizedBox(width: 8),
           Expanded(
             child: Text(
               value,
-              style: TextStyle(fontSize: 14),
+              style: const TextStyle(fontSize: 14),
               overflow: TextOverflow.ellipsis,
             ),
           ),
@@ -77,7 +77,7 @@ class OrderSubmitForm extends StatelessWidget {
 
   Widget _buildItemsSection(BuildContext context) {
     return Container(
-      margin: EdgeInsets.only(top: 12),
+      margin: const EdgeInsets.only(top: 12),
       padding: EdgeInsets.all(ResponsiveUtils.getPadding(context)),
       decoration: BoxDecoration(
         color: secondaryColor,
@@ -87,7 +87,7 @@ class OrderSubmitForm extends StatelessWidget {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          Text(
+          const Text(
             'Items',
             style: TextStyle(
               fontSize: 16,
@@ -95,9 +95,9 @@ class OrderSubmitForm extends StatelessWidget {
               color: primaryColor,
             ),
           ),
-          SizedBox(height: 8),
+          const SizedBox(height: 8),
           _buildItemsList(),
-          SizedBox(height: 8),
+          const SizedBox(height: 8),
           _buildInfoRow('Total Price:',
               '\$${order?.totalPrice?.toStringAsFixed(2) ?? 'N/A'}'),
         ],
@@ -107,16 +107,16 @@ class OrderSubmitForm extends StatelessWidget {
 
   Widget _buildItemsList() {
     if (order?.items == null || order!.items!.isEmpty) {
-      return Text('No items', style: TextStyle(fontSize: 14));
+      return const Text('No items', style: TextStyle(fontSize: 14));
     }
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: order!.items!.map((item) {
         return Padding(
-          padding: EdgeInsets.only(bottom: 4.0),
+          padding: const EdgeInsets.only(bottom: 4.0),
           child: Text(
             '${item.productName}: ${item.quantity} x \$${item.price?.toStringAsFixed(2)}',
-            style: TextStyle(fontSize: 14),
+            style: const TextStyle(fontSize: 14),
           ),
         );
       }).toList(),
@@ -125,7 +125,7 @@ class OrderSubmitForm extends StatelessWidget {
 
   Widget _buildAddressSection(BuildContext context) {
     return Container(
-      margin: EdgeInsets.only(top: 12),
+      margin: const EdgeInsets.only(top: 12),
       padding: EdgeInsets.all(ResponsiveUtils.getPadding(context)),
       decoration: BoxDecoration(
         color: secondaryColor,
@@ -135,7 +135,7 @@ class OrderSubmitForm extends StatelessWidget {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          Text(
+          const Text(
             'Shipping Address',
             style: TextStyle(
               fontSize: 16,
@@ -143,7 +143,7 @@ class OrderSubmitForm extends StatelessWidget {
               color: Colors.blueAccent,
             ),
           ),
-          SizedBox(height: 8),
+          const SizedBox(height: 8),
           _buildInfoRow('Phone:', order?.shippingAddress?.phone ?? 'N/A'),
           _buildInfoRow('Street:', order?.shippingAddress?.street ?? 'N/A'),
           _buildInfoRow('City:', order?.shippingAddress?.city ?? 'N/A'),
@@ -157,7 +157,7 @@ class OrderSubmitForm extends StatelessWidget {
 
   Widget _buildPaymentDetailsSection(BuildContext context) {
     return Container(
-      margin: EdgeInsets.only(top: 12),
+      margin: const EdgeInsets.only(top: 12),
       padding: EdgeInsets.all(ResponsiveUtils.getPadding(context)),
       decoration: BoxDecoration(
         color: secondaryColor,
@@ -167,7 +167,7 @@ class OrderSubmitForm extends StatelessWidget {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          Text(
+          const Text(
             'Payment Details',
             style: TextStyle(
               fontSize: 16,
@@ -175,7 +175,7 @@ class OrderSubmitForm extends StatelessWidget {
               color: primaryColor,
             ),
           ),
-          SizedBox(height: 8),
+          const SizedBox(height: 8),
           _buildInfoRow(
               'Payment Method:', order?.paymentMethod?.toUpperCase() ?? 'N/A'),
           _buildInfoRow(
@@ -192,12 +192,12 @@ class OrderSubmitForm extends StatelessWidget {
 
           // Show payment proof if available
           if (order?.paymentProof?.imageUrl != null) ...[
-            SizedBox(height: 8),
-            Text(
+            const SizedBox(height: 8),
+            const Text(
               'Payment Proof:',
               style: TextStyle(fontWeight: FontWeight.bold, fontSize: 14),
             ),
-            SizedBox(height: 4),
+            const SizedBox(height: 4),
             GestureDetector(
               onTap: () => _viewPaymentProof(context, order!),
               child: Container(
@@ -211,14 +211,14 @@ class OrderSubmitForm extends StatelessWidget {
                   order!.paymentProof!.imageUrl!,
                   fit: BoxFit.cover,
                   errorBuilder: (context, error, stackTrace) {
-                    return Icon(Icons.receipt,
+                    return const Icon(Icons.receipt,
                         size: 40, color: Colors.blueAccent);
                   },
                 ),
               ),
             ),
             if (order!.paymentProof!.verified != null) ...[
-              SizedBox(height: 4),
+              const SizedBox(height: 4),
               Text(
                 'Verified: ${order!.paymentProof!.verified! ? 'Yes' : 'No'}',
                 style: TextStyle(
@@ -237,15 +237,15 @@ class OrderSubmitForm extends StatelessWidget {
 
   Widget _buildStatusSection(BuildContext context) {
     return Container(
-      margin: EdgeInsets.only(top: 12),
+      margin: const EdgeInsets.only(top: 12),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          Text(
+          const Text(
             'Order Status:',
             style: TextStyle(fontWeight: FontWeight.bold, fontSize: 14),
           ),
-          SizedBox(height: 4),
+          const SizedBox(height: 4),
           Consumer<OrderProvider>(
             builder: (context, orderProvider, child) {
               // Set initial status based on current order status
@@ -256,7 +256,7 @@ class OrderSubmitForm extends StatelessWidget {
               return CustomDropdown(
                 hintText: 'Status',
                 initialValue: orderProvider.selectedOrderStatus,
-                items: [
+                items: const [
                   'pending',
                   'processing',
                   'shipped',
@@ -284,15 +284,15 @@ class OrderSubmitForm extends StatelessWidget {
 
   Widget _buildTrackingSection(BuildContext context) {
     return Container(
-      margin: EdgeInsets.only(top: 12),
+      margin: const EdgeInsets.only(top: 12),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          Text(
+          const Text(
             'Tracking URL:',
             style: TextStyle(fontWeight: FontWeight.bold, fontSize: 14),
           ),
-          SizedBox(height: 4),
+          const SizedBox(height: 4),
           CustomTextField(
             labelText: 'Tracking Url',
             onSave: (val) {},
@@ -345,11 +345,11 @@ class OrderSubmitForm extends StatelessWidget {
               color: secondaryColor,
               borderRadius: BorderRadius.circular(10),
             ),
-            padding: EdgeInsets.all(defaultPadding),
+            padding: const EdgeInsets.all(defaultPadding),
             child: Column(
               mainAxisSize: MainAxisSize.min,
               children: [
-                Text(
+                const Text(
                   "Payment Proof",
                   style: TextStyle(
                     color: Colors.white,
@@ -357,7 +357,7 @@ class OrderSubmitForm extends StatelessWidget {
                     fontWeight: FontWeight.bold,
                   ),
                 ),
-                Gap(defaultPadding),
+                const Gap(defaultPadding),
                 Image.network(
                   order.paymentProof!.imageUrl!,
                   width: 300,
@@ -368,7 +368,7 @@ class OrderSubmitForm extends StatelessWidget {
                       width: 300,
                       height: 300,
                       color: Colors.grey[800],
-                      child: Center(
+                      child: const Center(
                         child: Column(
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: [
@@ -383,10 +383,10 @@ class OrderSubmitForm extends StatelessWidget {
                     );
                   },
                 ),
-                Gap(defaultPadding),
+                const Gap(defaultPadding),
                 ElevatedButton(
                   onPressed: () => Navigator.of(context).pop(),
-                  child: Text("Close"),
+                  child: const Text("Close"),
                 ),
               ],
             ),

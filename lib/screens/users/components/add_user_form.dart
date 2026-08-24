@@ -308,8 +308,8 @@ class _UserSubmitFormState extends State<UserSubmitForm> {
                 },
         ),
         if (isOptional)
-          Padding(
-            padding: const EdgeInsets.only(top: 4, left: 8),
+          const Padding(
+            padding: EdgeInsets.only(top: 4, left: 8),
             child: Text(
               'Leave empty to keep current password',
               style: TextStyle(

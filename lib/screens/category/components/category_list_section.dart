@@ -4,7 +4,6 @@ import 'package:admin_panal_start/utility/responsive_utils.dart';
 import 'package:admin_panal_start/widgets/responsive_data_table.dart';
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:get/get.dart';
-import 'package:get/get_core/src/get_main.dart';
 import '../../../core/data/data_provider.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
@@ -167,7 +166,7 @@ Widget _buildCategoryImage(String? imageUrl) {
     );
   }
 
-  return Container(
+  return SizedBox(
     width: 50,
     height: 50,
     child: ClipRRect(
@@ -184,13 +183,13 @@ Widget _buildCategoryImage(String? imageUrl) {
             color: Colors.grey[800],
             borderRadius: BorderRadius.circular(8),
           ),
-          child: Center(
+          child: const Center(
             child: SizedBox(
               width: 20,
               height: 20,
               child: CircularProgressIndicator(
                 strokeWidth: 2,
-                valueColor: const AlwaysStoppedAnimation<Color>(Colors.white),
+                valueColor: AlwaysStoppedAnimation<Color>(Colors.white),
               ),
             ),
           ),

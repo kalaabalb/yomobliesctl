@@ -70,10 +70,10 @@ class DashboardScreen extends StatelessWidget {
           ),
           if (!isMobile) ...[
             const SizedBox(height: 14),
-            Wrap(
+            const Wrap(
               spacing: 10,
               runSpacing: 10,
-              children: const [
+              children: [
                 _DashboardChip(label: 'Touch friendly'),
                 _DashboardChip(label: 'Responsive tables'),
                 _DashboardChip(label: 'Role based access'),
