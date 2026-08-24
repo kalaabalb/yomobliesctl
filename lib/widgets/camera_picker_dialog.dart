@@ -87,9 +87,15 @@ class CameraPickerDialog extends StatelessWidget {
     final ImagePicker picker = ImagePicker();
     try {
       final XFile? image = await picker.pickImage(source: source);
+      if (!context.mounted) {
+        return;
+      }
       Navigator.of(context).pop();
       onImageSelected(image);
     } catch (e) {
+      if (!context.mounted) {
+        return;
+      }
       Navigator.of(context).pop();
       ScaffoldMessenger.of(context).showSnackBar(
         SnackBar(

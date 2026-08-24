@@ -138,7 +138,7 @@ class _OrderScreenState extends State<OrderScreen> {
       onChanged: (newValue) {
         if (newValue == null) return;
         setState(() => _selectedFilter = newValue);
-        if (newValue?.toLowerCase() == 'all orders') {
+        if (newValue.toLowerCase() == 'all orders') {
           context.dataProvider.filterOrders('');
         } else {
           context.dataProvider.filterOrders(newValue.toLowerCase());

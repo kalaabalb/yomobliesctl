@@ -131,7 +131,7 @@ class _MultiSelectDropDownState<T> extends State<MultiSelectDropDown<T>> {
             height: 48,
             padding: EdgeInsets.symmetric(horizontal: 16),
           ),
-          dropdownSearchData: widget.items.length > 5
+                  dropdownSearchData: widget.items.length > 5
               ? DropdownSearchData(
                   searchController: TextEditingController(),
                   searchInnerWidgetHeight: 50,
@@ -162,8 +162,12 @@ class _MultiSelectDropDownState<T> extends State<MultiSelectDropDown<T>> {
                     ),
                   ),
                   searchMatchFn: (item, searchValue) {
+                    final value = item.value;
+                    if (value == null) {
+                      return false;
+                    }
                     return widget
-                        .displayItem(item.value!)
+                        .displayItem(value)
                         .toLowerCase()
                         .contains(searchValue.toLowerCase());
                   },

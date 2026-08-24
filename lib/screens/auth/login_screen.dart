@@ -235,6 +235,10 @@ class _LoginScreenState extends State<LoginScreen> {
         _passwordCtrl.text,
       );
 
+      if (!mounted) {
+        return;
+      }
+
       if (result.success) {
         ScaffoldMessenger.of(context).showSnackBar(
           const SnackBar(
@@ -257,6 +261,9 @@ class _LoginScreenState extends State<LoginScreen> {
         );
       }
     } catch (e) {
+      if (!mounted) {
+        return;
+      }
       ScaffoldMessenger.of(context).showSnackBar(
         SnackBar(
           content: Text('Login failed: ${e.toString()}'),
@@ -265,7 +272,9 @@ class _LoginScreenState extends State<LoginScreen> {
         ),
       );
     } finally {
-      _isLoading.value = false;
+      if (mounted) {
+        _isLoading.value = false;
+      }
     }
   }
 

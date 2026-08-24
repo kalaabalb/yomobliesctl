@@ -62,10 +62,7 @@ class CategorySubmitForm extends StatelessWidget {
                   catProvider.pickImage(context);
                 },
                 onRemoveImage: () {
-                  catProvider.selectedImage = null;
-                  catProvider.selectedImageBytes = null;
-                  catProvider.imgXFile = null;
-                  catProvider.notifyListeners();
+                  catProvider.clearImageSelection();
                 },
               ),
             ),

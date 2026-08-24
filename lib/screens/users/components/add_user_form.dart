@@ -96,17 +96,25 @@ class _UserSubmitFormState extends State<UserSubmitForm> {
       if (result.success) {
         SnackBarHelper.showSuccessSnackBar(result.message);
         widget.onUserAdded?.call();
+        if (!mounted) {
+          return;
+        }
         Navigator.of(context).pop();
       } else {
         SnackBarHelper.showErrorSnackBar(result.message);
       }
     } catch (e) {
       print('❌ User creation error: $e');
+      if (!mounted) {
+        return;
+      }
       SnackBarHelper.showErrorSnackBar('Failed to save user: $e');
     } finally {
-      setState(() {
-        _isLoading = false;
-      });
+      if (mounted) {
+        setState(() {
+          _isLoading = false;
+        });
+      }
     }
   }
 

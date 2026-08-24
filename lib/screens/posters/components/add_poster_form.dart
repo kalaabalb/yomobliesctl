@@ -51,10 +51,7 @@ class PosterSubmitForm extends StatelessWidget {
                   posterProvider.pickImage(context);
                 },
                 onRemoveImage: () {
-                  posterProvider.selectedImage = null;
-                  posterProvider.selectedImageBytes = null;
-                  posterProvider.imgXFile = null;
-                  posterProvider.notifyListeners();
+                  posterProvider.clearImageSelection();
                 },
               ),
             ),

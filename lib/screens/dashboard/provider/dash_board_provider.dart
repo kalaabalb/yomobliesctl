@@ -400,7 +400,7 @@ class DashBoardProvider extends ChangeNotifier {
           } else {
             String filePath = imgXFile.path;
             String fileName = filePath.split('/').last;
-            formData[imageKey] = await MultipartFile(
+            formData[imageKey] = MultipartFile(
               filePath,
               filename: fileName,
             );

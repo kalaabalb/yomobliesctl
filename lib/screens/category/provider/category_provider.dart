@@ -346,6 +346,13 @@ class CategoryProvider extends ChangeNotifier {
     notifyListeners();
   }
 
+  void clearImageSelection() {
+    selectedImage = null;
+    selectedImageBytes = null;
+    imgXFile = null;
+    notifyListeners();
+  }
+
   updateUI() {
     notifyListeners();
   }
