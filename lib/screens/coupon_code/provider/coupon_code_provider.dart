@@ -151,7 +151,7 @@ class CouponCodeProvider extends ChangeNotifier {
         SnackBarHelper.showErrorSnackBar("Error: $errorMessage");
       }
     } catch (e) {
-      print("Add coupon error: $e");
+      debugPrint("Add coupon error: $e");
       SnackBarHelper.showErrorSnackBar(
           "Failed to add coupon. Please try again.");
     } finally {
@@ -228,7 +228,7 @@ class CouponCodeProvider extends ChangeNotifier {
         SnackBarHelper.showErrorSnackBar("Error: $errorMessage");
       }
     } catch (e) {
-      print("Update coupon error: $e");
+      debugPrint("Update coupon error: $e");
       SnackBarHelper.showErrorSnackBar(
           "Failed to update coupon. Please try again.");
     } finally {
@@ -313,7 +313,7 @@ class CouponCodeProvider extends ChangeNotifier {
         SnackBarHelper.showErrorSnackBar("Error: $errorMessage");
       }
     } catch (e) {
-      print("Delete coupon error: $e");
+      debugPrint("Delete coupon error: $e");
       SnackBarHelper.showErrorSnackBar(
           "Failed to delete coupon. Please try again.");
     } finally {

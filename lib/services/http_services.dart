@@ -6,7 +6,6 @@ import 'package:get_storage/get_storage.dart';
 import '../utility/constants.dart';
 
 class HttpService extends GetConnect {
-  final String baseUrl = mainUrl;
   final GetStorage _storage = GetStorage();
   final RxString _authToken = ''.obs;
 
@@ -16,7 +15,7 @@ class HttpService extends GetConnect {
 
   @override
   void onInit() {
-    httpClient.baseUrl = baseUrl;
+    httpClient.baseUrl = mainUrl;
     httpClient.timeout = _defaultTimeout;
 
     // Load stored token

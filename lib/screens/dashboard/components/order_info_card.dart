@@ -25,8 +25,8 @@ class OrderInfoCard extends StatelessWidget {
         vertical: isMobile ? 10 : defaultPadding,
       ),
       decoration: BoxDecoration(
-        color: Colors.white.withOpacity(0.03),
-        border: Border.all(width: 1, color: primaryColor.withOpacity(0.14)),
+        color: Colors.white.withValues(alpha: 0.03),
+        border: Border.all(width: 1, color: primaryColor.withValues(alpha: 0.14)),
         borderRadius: const BorderRadius.all(
           Radius.circular(16),
         ),

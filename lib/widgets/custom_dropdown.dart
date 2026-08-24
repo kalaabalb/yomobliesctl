@@ -53,7 +53,7 @@ class CustomDropdown<T> extends StatelessWidget {
             vertical: ResponsiveUtils.isMobile(context) ? 10 : 14,
           ),
         ),
-        value: resolvedValue,
+        initialValue: resolvedValue,
         items: items.map((T value) {
           return DropdownMenuItem<T>(
             value: value,

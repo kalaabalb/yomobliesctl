@@ -32,7 +32,7 @@ class CompactFormDialog extends StatelessWidget {
             gradient: LinearGradient(
               colors: [
                 surfaceColor,
-                surfaceColor.withOpacity(0.96),
+                surfaceColor.withValues(alpha: 0.96),
               ],
               begin: Alignment.topCenter,
               end: Alignment.bottomCenter,
@@ -41,7 +41,7 @@ class CompactFormDialog extends StatelessWidget {
             border: Border.all(color: borderColor),
             boxShadow: [
               BoxShadow(
-                color: Colors.black.withOpacity(0.3),
+                color: Colors.black.withValues(alpha: 0.3),
                 blurRadius: 28,
                 offset: const Offset(0, 18),
               ),
@@ -54,7 +54,7 @@ class CompactFormDialog extends StatelessWidget {
                 padding: const EdgeInsets.fromLTRB(20, 18, 14, 16),
                 decoration: BoxDecoration(
                   border: Border(
-                    bottom: BorderSide(color: Colors.white.withOpacity(0.06)),
+                    bottom: BorderSide(color: Colors.white.withValues(alpha: 0.06)),
                   ),
                 ),
                 child: Row(

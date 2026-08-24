@@ -23,7 +23,7 @@ class ProductListSection extends StatelessWidget {
         borderRadius: const BorderRadius.all(Radius.circular(10)),
         boxShadow: [
           BoxShadow(
-            color: Colors.black.withOpacity(0.2),
+            color: Colors.black.withValues(alpha: 0.2),
             blurRadius: 10,
             offset: const Offset(0, 4),
           ),
@@ -379,11 +379,11 @@ DataRow productDataRow(BuildContext context, Product productInfo, int index,
 
 Color _getStockStatusColor(Product product) {
   if (product.quantity == null || product.quantity! <= 0) {
-    return Colors.red.withOpacity(0.8);
+    return Colors.red.withValues(alpha: 0.8);
   } else if (product.quantity! <= 5) {
-    return Colors.orange.withOpacity(0.8);
+    return Colors.orange.withValues(alpha: 0.8);
   } else {
-    return Colors.green.withOpacity(0.8);
+    return Colors.green.withValues(alpha: 0.8);
   }
 }
 

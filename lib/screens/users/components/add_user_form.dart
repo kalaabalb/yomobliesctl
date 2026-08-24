@@ -77,21 +77,21 @@ class _UserSubmitFormState extends State<UserSubmitForm> {
         userData['password'] = _passwordCtrl.text;
       }
 
-      print('🔄 Creating admin user with data: $userData');
+      debugPrint('🔄 Creating admin user with data: $userData');
 
       ApiResponse<AdminUser> result;
 
       if (widget.user != null) {
-        print('📤 Updating user: ${widget.user!.sId}');
+        debugPrint('📤 Updating user: ${widget.user!.sId}');
         result =
             await _authService.updateAdminUser(widget.user!.sId!, userData);
       } else {
-        print('📤 Creating new user');
+        debugPrint('📤 Creating new user');
         result = await _authService.createAdminUser(userData);
       }
 
-      print('📥 User creation response: ${result.success}');
-      print('📥 User creation message: ${result.message}');
+      debugPrint('📥 User creation response: ${result.success}');
+      debugPrint('📥 User creation message: ${result.message}');
 
       if (result.success) {
         SnackBarHelper.showSuccessSnackBar(result.message);
@@ -104,7 +104,7 @@ class _UserSubmitFormState extends State<UserSubmitForm> {
         SnackBarHelper.showErrorSnackBar(result.message);
       }
     } catch (e) {
-      print('❌ User creation error: $e');
+      debugPrint('❌ User creation error: $e');
       if (!mounted) {
         return;
       }

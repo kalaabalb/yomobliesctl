@@ -175,7 +175,7 @@ class CouponSubmitForm extends StatelessWidget {
       firstDate: DateTime(2000),
       lastDate: DateTime(2100),
       onDateSelected: (DateTime date) {
-        print('Selected Date: $date');
+        debugPrint('Selected Date: $date');
       },
     );
   }

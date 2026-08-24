@@ -63,7 +63,7 @@ class CustomTextField extends StatelessWidget {
                 margin: const EdgeInsetsDirectional.only(start: 12, end: 8),
                 padding: const EdgeInsets.all(10),
                 decoration: BoxDecoration(
-                  color: Colors.white.withOpacity(0.04),
+                  color: Colors.white.withValues(alpha: 0.04),
                   borderRadius: BorderRadius.circular(12),
                 ),
                 child: IconTheme(
@@ -73,10 +73,10 @@ class CustomTextField extends StatelessWidget {
               ),
         suffixIcon: suffixIcon,
         labelStyle: TextStyle(
-          color: Colors.white.withOpacity(0.65),
+          color: Colors.white.withValues(alpha: 0.65),
           fontSize: isMobile ? 13 : 14,
         ),
-        helperStyle: TextStyle(color: Colors.white.withOpacity(0.55)),
+        helperStyle: TextStyle(color: Colors.white.withValues(alpha: 0.55)),
       ),
     );
   }

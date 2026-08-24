@@ -109,7 +109,7 @@ class PosterProvider extends ChangeNotifier {
         SnackBarHelper.showErrorSnackBar("Error: $errorMessage");
       }
     } catch (e) {
-      print("Add poster error: $e");
+      debugPrint("Add poster error: $e");
       SnackBarHelper.showErrorSnackBar(
           "Failed to add poster. Please try again.");
     } finally {
@@ -173,7 +173,7 @@ class PosterProvider extends ChangeNotifier {
         SnackBarHelper.showErrorSnackBar("Error: $errorMessage");
       }
     } catch (e) {
-      print("Update poster error: $e");
+      debugPrint("Update poster error: $e");
       SnackBarHelper.showErrorSnackBar(
           "Failed to update poster. Please try again.");
     } finally {
@@ -258,7 +258,7 @@ class PosterProvider extends ChangeNotifier {
         SnackBarHelper.showErrorSnackBar("Error: $errorMessage");
       }
     } catch (e) {
-      print("Delete poster error: $e");
+      debugPrint("Delete poster error: $e");
       SnackBarHelper.showErrorSnackBar(
           "Failed to delete poster. Please try again.");
     } finally {

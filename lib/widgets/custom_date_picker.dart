@@ -41,7 +41,9 @@ class _CustomDatePickerState extends State<CustomDatePicker> {
               onPrimary: Colors.white,
               onSurface: Colors.black,
             ),
-            dialogBackgroundColor: Colors.white,
+            dialogTheme: const DialogThemeData(
+              backgroundColor: Colors.white,
+            ),
             textButtonTheme: TextButtonThemeData(
               style: TextButton.styleFrom(
                 foregroundColor: primaryColor,

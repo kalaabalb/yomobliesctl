@@ -1,10 +1,7 @@
 import '../../../models/notification_result.dart';
 import 'package:flutter/cupertino.dart';
-import '../../../core/data/data_provider.dart';
 
 class NotificationProvider extends ChangeNotifier {
-  final DataProvider _dataProvider;
-
   final sendNotificationFormKey = GlobalKey<FormState>();
 
   TextEditingController titleCtrl = TextEditingController();
@@ -13,7 +10,7 @@ class NotificationProvider extends ChangeNotifier {
 
   NotificationResult? notificationResult;
 
-  NotificationProvider(this._dataProvider);
+  NotificationProvider();
 
   //TODO: should complete sendNotification
 

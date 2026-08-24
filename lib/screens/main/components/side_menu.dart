@@ -39,7 +39,7 @@ class SideMenu extends StatelessWidget {
             decoration: BoxDecoration(
               gradient: LinearGradient(
                 colors: [
-                  Colors.white.withOpacity(0.06),
+                  Colors.white.withValues(alpha: 0.06),
                   Colors.transparent,
                 ],
                 begin: Alignment.topCenter,
@@ -51,7 +51,7 @@ class SideMenu extends StatelessWidget {
                     child: Container(
                       width: 40,
                       height: 40,
-                      color: Colors.white.withOpacity(0.04),
+                      color: Colors.white.withValues(alpha: 0.04),
                       padding: const EdgeInsets.all(6),
                       child: Image.asset(
                         "assets/images/logo.png",
@@ -218,7 +218,7 @@ class DrawerListTile extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final selectedColor = Colors.white.withOpacity(0.10);
+    final selectedColor = Colors.white.withValues(alpha: 0.10);
 
     return ListTile(
       dense: true,

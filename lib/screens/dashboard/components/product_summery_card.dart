@@ -32,18 +32,18 @@ class ProductSummeryCard extends StatelessWidget {
           gradient: LinearGradient(
             colors: [
               surfaceColor,
-              info.color!.withOpacity(0.10),
+              info.color!.withValues(alpha: 0.10),
             ],
             begin: Alignment.topLeft,
             end: Alignment.bottomRight,
           ),
           borderRadius: BorderRadius.circular(18),
           border: Border.all(
-            color: info.color!.withOpacity(0.20),
+            color: info.color!.withValues(alpha: 0.20),
           ),
           boxShadow: [
             BoxShadow(
-              color: info.color!.withOpacity(0.07),
+              color: info.color!.withValues(alpha: 0.07),
               blurRadius: 14,
               offset: const Offset(0, 8),
             ),
@@ -61,7 +61,7 @@ class ProductSummeryCard extends StatelessWidget {
                   height: isMobile ? 34 : 44,
                   width: isMobile ? 34 : 44,
                   decoration: BoxDecoration(
-                    color: info.color!.withOpacity(0.14),
+                    color: info.color!.withValues(alpha: 0.14),
                     borderRadius: BorderRadius.circular(12),
                   ),
                   child: SvgPicture.asset(
@@ -72,7 +72,7 @@ class ProductSummeryCard extends StatelessWidget {
                 ),
                 if (!isMobile)
                   Icon(Icons.more_vert,
-                      color: Colors.white.withOpacity(0.50), size: 18)
+                      color: Colors.white.withValues(alpha: 0.50), size: 18)
               ],
             ),
             const SizedBox(height: 8),
@@ -136,7 +136,7 @@ class ProgressLine extends StatelessWidget {
           width: double.infinity,
           height: 4,
           decoration: BoxDecoration(
-            color: color!.withOpacity(0.12),
+            color: color!.withValues(alpha: 0.12),
             borderRadius: const BorderRadius.all(Radius.circular(10)),
           ),
         ),

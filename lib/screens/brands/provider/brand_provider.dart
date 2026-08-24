@@ -99,7 +99,7 @@ class BrandProvider extends ChangeNotifier {
         SnackBarHelper.showErrorSnackBar("Error: $errorMessage");
       }
     } catch (e) {
-      print("Add brand error: $e");
+      debugPrint("Add brand error: $e");
       SnackBarHelper.showErrorSnackBar(
           "Failed to add brand. Please try again.");
     } finally {
@@ -165,7 +165,7 @@ class BrandProvider extends ChangeNotifier {
         SnackBarHelper.showErrorSnackBar("Error: $errorMessage");
       }
     } catch (e) {
-      print("Update brand error: $e");
+      debugPrint("Update brand error: $e");
       SnackBarHelper.showErrorSnackBar(
           "Failed to update brand. Please try again.");
     } finally {
@@ -250,7 +250,7 @@ class BrandProvider extends ChangeNotifier {
         SnackBarHelper.showErrorSnackBar("Error: $errorMessage");
       }
     } catch (e) {
-      print("Delete brand error: $e");
+      debugPrint("Delete brand error: $e");
       SnackBarHelper.showErrorSnackBar(
           "Failed to delete brand. Please try again.");
     } finally {

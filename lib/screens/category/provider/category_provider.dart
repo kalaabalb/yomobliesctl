@@ -110,7 +110,7 @@ class CategoryProvider extends ChangeNotifier {
         SnackBarHelper.showErrorSnackBar("Error: $errorMessage");
       }
     } catch (e) {
-      print("Add category error: $e");
+      debugPrint("Add category error: $e");
       SnackBarHelper.showErrorSnackBar(
           "Failed to add category. Please try again.");
     } finally {
@@ -169,7 +169,7 @@ class CategoryProvider extends ChangeNotifier {
           clearFields();
           SnackBarHelper.showSuccessSnackBar(
               'Category updated successfully! ✅');
-          print('update category');
+          debugPrint('update category');
           await _dataProvider.getAllCategory();
         } else {
           SnackBarHelper.showErrorSnackBar(
@@ -183,7 +183,7 @@ class CategoryProvider extends ChangeNotifier {
         SnackBarHelper.showErrorSnackBar("Error: $errorMessage");
       }
     } catch (e) {
-      print("Update category error: $e");
+      debugPrint("Update category error: $e");
       SnackBarHelper.showErrorSnackBar(
           "Failed to update category. Please try again.");
     } finally {
@@ -269,7 +269,7 @@ class CategoryProvider extends ChangeNotifier {
         SnackBarHelper.showErrorSnackBar("Error: $errorMessage");
       }
     } catch (e) {
-      print("Delete category error: $e");
+      debugPrint("Delete category error: $e");
       SnackBarHelper.showErrorSnackBar(
           "Failed to delete category. Please try again.");
     } finally {

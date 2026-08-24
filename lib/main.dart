@@ -90,11 +90,7 @@ class MyApp extends StatelessWidget {
           ),
         ),
         ChangeNotifierProvider(create: (context) => RatingProvider()),
-        ChangeNotifierProvider(
-          create: (context) => NotificationProvider(
-            Provider.of<DataProvider>(context, listen: false),
-          ),
-        ),
+        ChangeNotifierProvider(create: (context) => NotificationProvider()),
       ],
       child: GetMaterialApp(
         debugShowCheckedModeBanner: false,

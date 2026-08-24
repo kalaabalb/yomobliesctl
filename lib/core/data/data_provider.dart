@@ -1043,16 +1043,6 @@ class DataProvider extends ChangeNotifier {
     notifyListeners();
   }
 
-  void _handleError(String message, dynamic error, bool showSnack) {
-    _errorMessage = '$message: ${error.toString()}';
-    if (kDebugMode) {
-      print('❌ $message: $error');
-    }
-    if (showSnack) {
-      SnackBarHelper.showErrorSnackBar(message);
-    }
-  }
-
   void clearError() {
     _errorMessage = null;
     notifyListeners();

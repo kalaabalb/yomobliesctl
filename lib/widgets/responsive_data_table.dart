@@ -84,7 +84,7 @@ class ResponsiveDataTable extends StatelessWidget {
             gradient: LinearGradient(
               colors: [
                 surfaceColor,
-                surfaceAltColor.withOpacity(0.75),
+                surfaceAltColor.withValues(alpha: 0.75),
               ],
               begin: Alignment.topLeft,
               end: Alignment.bottomRight,
@@ -113,7 +113,7 @@ class ResponsiveDataTable extends StatelessWidget {
                         child: Text(
                           field.label,
                           style: TextStyle(
-                            color: Colors.white.withOpacity(0.64),
+                            color: Colors.white.withValues(alpha: 0.64),
                             fontWeight: FontWeight.w600,
                             fontSize: 10,
                             height: 1.2,
@@ -132,7 +132,7 @@ class ResponsiveDataTable extends StatelessWidget {
                   child: Text(
                     '+${details.length - 1} more',
                     style: TextStyle(
-                      color: Colors.white.withOpacity(0.5),
+                      color: Colors.white.withValues(alpha: 0.5),
                       fontSize: 10,
                       fontStyle: FontStyle.italic,
                     ),
@@ -270,7 +270,7 @@ class ResponsiveDataTable extends StatelessWidget {
           child: Text(
             field.label,
             style: TextStyle(
-              color: Colors.white.withOpacity(0.64),
+              color: Colors.white.withValues(alpha: 0.64),
               fontWeight: FontWeight.w600,
               fontSize: 10,
               height: 1.2,
@@ -294,7 +294,7 @@ class ResponsiveDataTable extends StatelessWidget {
       width: double.infinity,
       padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 10),
       decoration: BoxDecoration(
-        color: Colors.white.withOpacity(0.05),
+        color: Colors.white.withValues(alpha: 0.05),
         borderRadius: BorderRadius.circular(14),
       ),
       child: DefaultTextStyle.merge(

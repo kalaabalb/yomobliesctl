@@ -160,7 +160,7 @@ class ProductImageCard extends StatelessWidget {
   Widget _buildPlaceholder() {
     return Container(
       decoration: BoxDecoration(
-        color: Colors.grey[800]!.withOpacity(0.5),
+        color: Colors.grey[800]!.withValues(alpha: 0.5),
         borderRadius: BorderRadius.circular(6),
       ),
     );

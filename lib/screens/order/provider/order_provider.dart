@@ -91,7 +91,7 @@ class OrderProvider extends ChangeNotifier {
         SnackBarHelper.showErrorSnackBar("Error: $errorMessage");
       }
     } catch (e) {
-      print("Update order error: $e");
+      debugPrint("Update order error: $e");
       SnackBarHelper.showErrorSnackBar(
           "Failed to update order. Please try again.");
     } finally {
@@ -140,7 +140,7 @@ class OrderProvider extends ChangeNotifier {
         SnackBarHelper.showErrorSnackBar("Error: $errorMessage");
       }
     } catch (e) {
-      print("Verify payment error: $e");
+      debugPrint("Verify payment error: $e");
       SnackBarHelper.showErrorSnackBar(
           "Failed to verify payment. Please try again.");
     } finally {
@@ -229,7 +229,7 @@ class OrderProvider extends ChangeNotifier {
         SnackBarHelper.showErrorSnackBar("Error: $errorMessage");
       }
     } catch (e) {
-      print("Delete order error: $e");
+      debugPrint("Delete order error: $e");
       SnackBarHelper.showErrorSnackBar(
           "Failed to delete order. Please try again.");
     } finally {

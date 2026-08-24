@@ -100,7 +100,7 @@ class SubCategoryProvider extends ChangeNotifier {
         SnackBarHelper.showErrorSnackBar("Error: $errorMessage");
       }
     } catch (e) {
-      print("Add sub category error: $e");
+      debugPrint("Add sub category error: $e");
       SnackBarHelper.showErrorSnackBar(
           "Failed to add sub category. Please try again.");
     } finally {
@@ -167,7 +167,7 @@ class SubCategoryProvider extends ChangeNotifier {
         SnackBarHelper.showErrorSnackBar("Error: $errorMessage");
       }
     } catch (e) {
-      print("Update sub category error: $e");
+      debugPrint("Update sub category error: $e");
       SnackBarHelper.showErrorSnackBar(
           "Failed to update sub category. Please try again.");
     } finally {
@@ -253,7 +253,7 @@ class SubCategoryProvider extends ChangeNotifier {
         SnackBarHelper.showErrorSnackBar("Error: $errorMessage");
       }
     } catch (e) {
-      print("Delete sub category error: $e");
+      debugPrint("Delete sub category error: $e");
       SnackBarHelper.showErrorSnackBar(
           "Failed to delete sub category. Please try again.");
     } finally {

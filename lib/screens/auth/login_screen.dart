@@ -67,7 +67,7 @@ class _LoginScreenState extends State<LoginScreen> {
     return Container(
       padding: EdgeInsets.all(isMobile ? 20 : 26),
       decoration: BoxDecoration(
-        color: surfaceColor.withOpacity(0.96),
+        color: surfaceColor.withValues(alpha: 0.96),
         gradient: const LinearGradient(
           colors: [
             Color(0xFF121A31),
@@ -80,7 +80,7 @@ class _LoginScreenState extends State<LoginScreen> {
         border: Border.all(color: borderColor),
         boxShadow: [
           BoxShadow(
-            color: Colors.black.withOpacity(0.35),
+            color: Colors.black.withValues(alpha: 0.35),
             blurRadius: 32,
             offset: const Offset(0, 20),
           ),

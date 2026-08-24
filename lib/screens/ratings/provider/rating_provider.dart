@@ -16,7 +16,7 @@ class RatingProvider extends ChangeNotifier {
         endpointUrl: 'ratings/product/$productId',
       );
 
-      print(
+      debugPrint(
           "🟡 [RATINGS] Raw response for product $productId: ${response.body}");
 
       if (response.isOk) {
@@ -34,26 +34,26 @@ class RatingProvider extends ChangeNotifier {
               final List<dynamic> ratingsList = data['ratings'];
               final List<Rating> ratings =
                   ratingsList.map((item) => Rating.fromJson(item)).toList();
-              print("🟢 [RATINGS] Found ${ratings.length} ratings");
+              debugPrint("🟢 [RATINGS] Found ${ratings.length} ratings");
               return ratings;
             } else if (data is List) {
               // Structure: {success: true, data: []}
               final List<Rating> ratings =
                   data.map((item) => Rating.fromJson(item)).toList();
-              print("🟢 [RATINGS] Found ${ratings.length} ratings");
+              debugPrint("🟢 [RATINGS] Found ${ratings.length} ratings");
               return ratings;
             }
           }
         }
 
-        print("🟡 [RATINGS] No ratings found or unexpected format");
+        debugPrint("🟡 [RATINGS] No ratings found or unexpected format");
         return [];
       }
 
-      print("🔴 [RATINGS] API call failed with status: ${response.statusCode}");
+      debugPrint("🔴 [RATINGS] API call failed with status: ${response.statusCode}");
       return [];
     } catch (e) {
-      print("🔴 [RATINGS] Error getting product ratings: $e");
+      debugPrint("🔴 [RATINGS] Error getting product ratings: $e");
       SnackBarHelper.showErrorSnackBar("Failed to load ratings: $e");
       return [];
     }
@@ -66,7 +66,7 @@ class RatingProvider extends ChangeNotifier {
         endpointUrl: 'ratings/product/$productId/stats',
       );
 
-      print(
+      debugPrint(
           "🟡 [STATS] Raw stats response for product $productId: ${response.body}");
 
       if (response.isOk) {
@@ -75,16 +75,16 @@ class RatingProvider extends ChangeNotifier {
 
           if (responseBody['success'] == true && responseBody['data'] != null) {
             final stats = responseBody['data'];
-            print("🟢 [STATS] Found stats: $stats");
+            debugPrint("🟢 [STATS] Found stats: $stats");
             return stats;
           }
         }
       }
 
-      print("🔴 [STATS] No stats found or API call failed");
+      debugPrint("🔴 [STATS] No stats found or API call failed");
       return null;
     } catch (e) {
-      print("🔴 [STATS] Error getting rating stats: $e");
+      debugPrint("🔴 [STATS] Error getting rating stats: $e");
       return null;
     }
   }
@@ -115,7 +115,7 @@ class RatingProvider extends ChangeNotifier {
         );
       }
     } catch (e) {
-      print("🔴 [DELETE] Error deleting rating: $e");
+      debugPrint("🔴 [DELETE] Error deleting rating: $e");
       SnackBarHelper.showErrorSnackBar("Failed to delete rating: $e");
       rethrow;
     }

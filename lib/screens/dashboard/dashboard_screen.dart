@@ -46,7 +46,7 @@ class DashboardScreen extends StatelessWidget {
           end: Alignment.bottomRight,
         ),
         borderRadius: BorderRadius.circular(24),
-        border: Border.all(color: Colors.white.withOpacity(0.08)),
+        border: Border.all(color: Colors.white.withValues(alpha: 0.08)),
       ),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
@@ -133,13 +133,11 @@ class _ActionBar extends StatelessWidget {
   const _ActionBar({
     required this.title,
     required this.onAdd,
-    this.onRefresh,
     this.compact = false,
   });
 
   final String title;
   final VoidCallback onAdd;
-  final VoidCallback? onRefresh;
   final bool compact;
 
   @override
@@ -171,13 +169,6 @@ class _ActionBar extends StatelessWidget {
                         label: const Text('Add'),
                       ),
                     ),
-                    if (onRefresh != null) ...[
-                      const SizedBox(width: 10),
-                      IconButton(
-                        onPressed: onRefresh,
-                        icon: const Icon(Icons.sync),
-                      ),
-                    ],
                   ],
                 ),
               ],
@@ -197,13 +188,6 @@ class _ActionBar extends StatelessWidget {
                   icon: const Icon(Icons.add),
                   label: const Text('Add New'),
                 ),
-                if (onRefresh != null) ...[
-                  const SizedBox(width: 12),
-                  IconButton(
-                    onPressed: onRefresh,
-                    icon: const Icon(Icons.sync),
-                  ),
-                ],
               ],
             ),
     );
@@ -220,7 +204,7 @@ class _DashboardChip extends StatelessWidget {
     return Container(
       padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 8),
       decoration: BoxDecoration(
-        color: Colors.white.withOpacity(0.08),
+        color: Colors.white.withValues(alpha: 0.08),
         borderRadius: BorderRadius.circular(999),
       ),
       child: Text(

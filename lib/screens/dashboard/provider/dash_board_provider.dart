@@ -153,7 +153,7 @@ class DashBoardProvider extends ChangeNotifier {
         SnackBarHelper.showErrorSnackBar("Error: $errorMessage");
       }
     } catch (e) {
-      print("Add product error: $e");
+      debugPrint("Add product error: $e");
       SnackBarHelper.showErrorSnackBar(
           "Failed to add product. Please check your connection and try again.");
     } finally {
@@ -234,7 +234,7 @@ class DashBoardProvider extends ChangeNotifier {
         SnackBarHelper.showErrorSnackBar("Error: $errorMessage");
       }
     } catch (e) {
-      print("Update product error: $e");
+      debugPrint("Update product error: $e");
       SnackBarHelper.showErrorSnackBar(
           "Failed to update product. Please try again.");
     } finally {
@@ -317,7 +317,7 @@ class DashBoardProvider extends ChangeNotifier {
         }
       }
     } catch (e) {
-      print("Delete product error: $e");
+      debugPrint("Delete product error: $e");
       SnackBarHelper.showErrorSnackBar(
           "Failed to delete product. Please try again.");
     } finally {
