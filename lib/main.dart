@@ -29,7 +29,8 @@ void main() async {
   await GetStorage.init();
 
   Get.put(HttpService(), permanent: true);
-  Get.put(AdminAuthService(), permanent: true);
+  final adminAuthService = Get.put(AdminAuthService(), permanent: true);
+  await adminAuthService.restoreSession();
 
   runApp(MyApp());
 }

@@ -147,10 +147,15 @@ class AdminAuthService extends GetxService {
             );
           }
 
+          if (token == null || token.isEmpty) {
+            return ApiResponse(
+              success: false,
+              message: 'Authentication token missing from login response.',
+              data: null,
+            );
+          }
+
           final user = AdminUser.fromJson(userJson);
-          final effectiveToken = (token != null && token.isNotEmpty)
-              ? token
-              : 'local-auth-${user.sId ?? user.username ?? DateTime.now().millisecondsSinceEpoch}';
 
           if (kDebugMode) {
             debugPrint('✅ [AUTH] Login successful!');
@@ -162,13 +167,13 @@ class AdminAuthService extends GetxService {
           }
 
           // Store authentication data securely
-          await _storage.write('auth_token', effectiveToken);
+          await _storage.write('auth_token', token);
           await _storage.write('user_data', user.toJson());
 
           // Update application state
           currentUser.value = user;
           isLoggedIn.value = true;
-          _httpService.setAuthorizationHeader(effectiveToken);
+          _httpService.setAuthorizationHeader(token);
 
           return ApiResponse(
             success: true,
@@ -266,6 +271,46 @@ class AdminAuthService extends GetxService {
         data: null,
       );
     }
+  }
+
+  Future<void> restoreSession() async {
+    final token = _storage.read('auth_token');
+    final userData = _storage.read('user_data');
+
+    if (token == null || userData == null) {
+      _clearAuthData();
+      return;
+    }
+
+    try {
+      _httpService.setAuthorizationHeader(token.toString());
+      final response = await _httpService.getItems(
+        endpointUrl: 'admin-users/profile',
+      );
+
+      if (response.isOk) {
+        final responseBody = _normalizeResponseBody(response.body);
+        if (responseBody is Map<String, dynamic>) {
+          final apiResponse = ApiResponse<AdminUser>.fromJson(
+            responseBody,
+            (json) => AdminUser.fromJson(json as Map<String, dynamic>),
+          );
+
+          if (apiResponse.success && apiResponse.data != null) {
+            currentUser.value = apiResponse.data;
+            isLoggedIn.value = true;
+            await _storage.write('user_data', apiResponse.data!.toJson());
+            return;
+          }
+        }
+      }
+    } catch (e) {
+      if (kDebugMode) {
+        debugPrint('❌ [AUTH] Session restore failed: $e');
+      }
+    }
+
+    _clearAuthData();
   }
 
   dynamic _normalizeResponseBody(dynamic body) {

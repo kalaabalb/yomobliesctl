@@ -13,7 +13,10 @@ const defaultPadding = 16.0;
 
 // Dynamic URL that works on all platforms
 String getBaseUrl() {
-  return 'https://yonasmarketplace-backend.onrender.com';
+  return MAIN_URL;
 }
 
-const MAIN_URL = 'https://yonasmarketplace-backend.onrender.com';
+const String MAIN_URL = String.fromEnvironment(
+  'MAIN_URL',
+  defaultValue: 'https://yonasmarketplace-backend.onrender.com',
+);
