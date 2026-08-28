@@ -1,8 +1,12 @@
 name: admin_panal_start
-description: A new Flutter project.
+description: YoMobiles Flutter admin dashboard for catalog, order, and user management
 publish_to: "none"
 
 version: 1.0.0+1
+
+homepage: https://github.com/kalaabalb/yomobliesctl
+repository: https://github.com/kalaabalb/yomobliesctl
+issue_tracker: https://github.com/kalaabalb/yomobliesctl/issues
 
 environment:
   sdk: '>=3.3.3 <4.0.0'
